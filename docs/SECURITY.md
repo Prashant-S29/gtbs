@@ -10,7 +10,7 @@ This records implemented controls and known risks; it is not a formal security c
 - `BETTER_AUTH_SECRET` must be stable across deployments and contain at least 32 random characters.
 - Production requires matching credential-free HTTPS `NEXT_PUBLIC_SITE_URL` and `BETTER_AUTH_URL` origins; Admin auth fails closed otherwise.
 - `NEXT_PUBLIC_` variables are browser-visible and cannot contain secrets.
-- `RESEND_API_KEY` is server-only and send-scoped to the verified `gtbsbooks.com` domain. Sender identity is fixed in server code to `GTBS Support <support@gtbsbooks.com>`.
+- `RESEND_API_KEY` is server-only and send-scoped to the verified `gtbsbooks.com` domain. Sender identity is fixed in server code to `GTBS Support <support@gtbsbooks.com>`. DKIM, both Resend sending CNAMEs, and DMARC live in Vercel DNS. These authorize sending only; receiving at the support address additionally requires mailbox-provider MX records, which are not currently configured.
 - `UPLOADTHING_TOKEN` is server-only and must never be prefixed with `NEXT_PUBLIC_` or returned by an API.
 - `DATABASE_URL` contains database credentials. Keep it server-only, require TLS for hosted PostgreSQL, never print it, and never prefix it with `NEXT_PUBLIC_`. The deployable baseline uses explicit libpq-compatible `sslmode=require`; prefer `verify-full` with Supabase's CA in the deployment trust store when available.
 - Rotate a secret immediately if exposed in Git, logs, screenshots, chat, or docs.
@@ -109,11 +109,11 @@ This records implemented controls and known risks; it is not a formal security c
 
 - [ ] Production secrets are unique and stored in a secret manager.
 - [x] Resend accepts Contact and password-reset messages from `support@gtbsbooks.com` using the send-scoped server key.
-- [ ] HTTPS is enforced; the Better Auth production cookie is observed as Secure on Vercel.
+- [x] HTTPS and canonical production/WWW behavior are enforced by Vercel; observing the Better Auth production cookie through an authenticated browser remains pending.
 - [x] Preview builds emit layered metadata/header/robots search exclusion; verify the assigned staging domain after each deployment-topology change.
 - [ ] Example credentials fail.
 - [x] Protected pages/mutations reject missing/invalid sessions; valid reset completion revokes the previous database session.
 - [x] Better Auth and public-email throttles use shared PostgreSQL storage; Vercel Firewall can add outer limits.
-- [ ] Dependency/source scans have no unresolved high-severity findings.
-- [ ] Errors reveal no secrets, stacks, or internal paths.
+- [x] Dependency/source scans have no unresolved high-severity findings.
+- [x] Deployment source excludes local environment files; the superseded first deployment was deleted.
 - [ ] Security changes are recorded in `PROGRESS.md`.

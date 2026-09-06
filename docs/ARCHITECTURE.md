@@ -132,6 +132,7 @@ Vercel/Supabase deployments use the transaction pooler and a small per-instance 
 - `gtbsbooks.com` aliases Production deployments. `staging.gtbsbooks.com` is a branch domain that follows Preview deployments from `staging`.
 - Preview builds are identified from Vercel's system-owned `VERCEL_ENV=preview`. They emit disallow-all robots policy, noindex/nofollow/noarchive/nosnippet/noimageindex metadata, and the equivalent `X-Robots-Tag` on every route response. Google site verification is omitted.
 - Production and Preview have separately scoped canonical/Auth URL values. Preview markup can retain canonical production URLs as an additional duplicate-content signal, but canonical tags never replace noindex controls.
+- GoDaddy remains the registrar while Vercel nameservers are authoritative for DNS. The zone carries Vercel's project aliases plus Resend DKIM/SPF-return-path/DMARC sending records. Incoming support mail is a separate boundary and requires mailbox-provider MX records.
 
 ## Decisions
 
