@@ -10,7 +10,7 @@ This records implemented controls and known risks; it is not a formal security c
 - `BETTER_AUTH_SECRET` must be stable across deployments and contain at least 32 random characters.
 - Production requires matching credential-free HTTPS `NEXT_PUBLIC_SITE_URL` and `BETTER_AUTH_URL` origins; Admin auth fails closed otherwise.
 - `NEXT_PUBLIC_` variables are browser-visible and cannot contain secrets.
-- `RESEND_API_KEY` is server-only and send-scoped to the verified `gtbsbooks.com` domain. Sender identity is fixed in server code to `GTBS Support <support@gtbsbooks.com>`. DKIM, both Resend sending CNAMEs, and DMARC live in Vercel DNS. These authorize sending only; receiving at the support address additionally requires mailbox-provider MX records, which are not currently configured.
+- `RESEND_API_KEY` is server-only and send-scoped to the verified `gtbsbooks.com` domain. Sender identity is fixed in server code to `GTBS Support <support@gtbsbooks.com>`. DKIM, both Resend sending CNAMEs, and DMARC live in Vercel DNS. Google Workspace MX plus apex SPF handle the incoming/support-mail boundary; the Workspace account and Google-side verification must remain active.
 - `UPLOADTHING_TOKEN` is server-only and must never be prefixed with `NEXT_PUBLIC_` or returned by an API.
 - `DATABASE_URL` contains database credentials. Keep it server-only, require TLS for hosted PostgreSQL, never print it, and never prefix it with `NEXT_PUBLIC_`. The deployable baseline uses explicit libpq-compatible `sslmode=require`; prefer `verify-full` with Supabase's CA in the deployment trust store when available.
 - Rotate a secret immediately if exposed in Git, logs, screenshots, chat, or docs.

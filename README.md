@@ -33,7 +33,7 @@ Contact and Admin password-reset mail is sent server-side through Resend from `G
 
 Every Vercel Preview build emits page-level noindex metadata, an `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex` response header, and a `robots.txt` that disallows `/`. The stable staging branch domain is also covered by Vercel Authentication. Production remains indexable. Do not promote a preview build to Production without rebuilding it in the Production environment.
 
-GoDaddy remains the registrar, while Vercel nameservers host the active DNS zone. The zone includes the Resend sending records, but receiving mail at `support@gtbsbooks.com` requires separate mailbox-provider MX records.
+GoDaddy remains the registrar, while Vercel nameservers host the active DNS zone. The zone includes Resend's sending records plus Google Workspace MX/SPF records for incoming support mail; the Workspace account must remain active and complete any Google-side domain verification.
 
 ## Quality checks
 

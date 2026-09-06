@@ -650,7 +650,7 @@
 
 **Resolved baseline 2026-09-06:** Vercel authoritative DNS contains the supplied `resend._domainkey` TXT, `rsend` CNAME, `send` CNAME, and `_dmarc` TXT. Google, Cloudflare, and Quad9 found DKIM plus both CNAMEs; some resolvers temporarily disagreed on DMARC while old delegation caches expired.
 
-**Solution:** wait for NS/record cache expiry and click Verify in Resend again. Do not expose or broaden the send-only API key; it correctly receives 401 from Resend's domain-management endpoint. Sending verification does not create a mailbox: configure MX records from the chosen email-hosting provider before using `support@gtbsbooks.com` as the Contact recipient.
+**Solution:** wait for NS/record cache expiry and click Verify in Resend again. Do not expose or broaden the send-only API key; it correctly receives 401 from Resend's domain-management endpoint. Sending verification does not create a mailbox. The selected Google Workspace baseline now publishes priority-1 `smtp.google.com` MX and Google's apex SPF through Vercel DNS; complete any Workspace Admin domain-verification/Gmail-activation prompt and add its provider-generated DKIM record before relying on inbox delivery.
 
 ## Staging appears indexable
 
