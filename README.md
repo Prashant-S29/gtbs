@@ -31,7 +31,9 @@ Contact and Admin password-reset mail is sent server-side through Resend from `G
 
 `main` is the production branch for `https://gtbsbooks.com`; `staging` is the preview branch for `https://staging.gtbsbooks.com`. `vercel.json` disables Git-triggered deployment for every other branch. Configure the production and preview environment scopes separately so each scope's `BETTER_AUTH_URL` and `NEXT_PUBLIC_SITE_URL` match its custom domain.
 
-Every Vercel Preview build emits page-level noindex metadata, an `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex` response header, and a `robots.txt` that disallows `/`. Production remains indexable. Do not promote a preview build to Production without rebuilding it in the Production environment.
+Every Vercel Preview build emits page-level noindex metadata, an `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex` response header, and a `robots.txt` that disallows `/`. The stable staging branch domain is also covered by Vercel Authentication. Production remains indexable. Do not promote a preview build to Production without rebuilding it in the Production environment.
+
+GoDaddy remains the registrar, while Vercel nameservers host the active DNS zone. The zone includes the Resend sending records, but receiving mail at `support@gtbsbooks.com` requires separate mailbox-provider MX records.
 
 ## Quality checks
 

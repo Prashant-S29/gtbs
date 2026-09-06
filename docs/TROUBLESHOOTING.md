@@ -636,6 +636,22 @@
 
 **Solution:** copy the complete Transaction pooler URI from Supabase Dashboard → Connect, substitute the newly rotated password only in its password field, retain port `6543`, URL-encode reserved password characters, and append the documented TLS parameters. Validate with `pnpm db:migrate` without logging the URI.
 
+## Custom domain still shows Wix after the Vercel nameserver cutover
+
+**Symptom observed 2026-09-06:** Vercel and the `.com` registry reported the correct Vercel nameservers, while some recursive resolvers still returned GoDaddy parking records and the local resolver still returned the former Wix nameservers/site.
+
+**Cause:** recursive NS delegations are cached independently. The observed local Wix delegation had roughly 23 hours of TTL remaining; removing Wix records in a control panel cannot invalidate already-cached answers.
+
+**Solution:** do not add Wix records to Vercel or repeatedly change nameservers. Confirm the registry and Vercel show only `ns1.vercel-dns.com`/`ns2.vercel-dns.com`, then wait for resolver/ISP/browser caches to expire. During verification, compare reputable public resolvers and test the Vercel authoritative answer; normal propagation can take up to 24–48 hours.
+
+## Resend remains partially verified or labels the provider as Wix
+
+**Cause:** Resend can still be checking a recursive cache that points at the former DNS provider, or one required record was not copied before nameserver migration.
+
+**Resolved baseline 2026-09-06:** Vercel authoritative DNS contains the supplied `resend._domainkey` TXT, `rsend` CNAME, `send` CNAME, and `_dmarc` TXT. Google, Cloudflare, and Quad9 found DKIM plus both CNAMEs; some resolvers temporarily disagreed on DMARC while old delegation caches expired.
+
+**Solution:** wait for NS/record cache expiry and click Verify in Resend again. Do not expose or broaden the send-only API key; it correctly receives 401 from Resend's domain-management endpoint. Sending verification does not create a mailbox: configure MX records from the chosen email-hosting provider before using `support@gtbsbooks.com` as the Contact recipient.
+
 ## Staging appears indexable
 
 **Symptom:** `staging.gtbsbooks.com` lacks the search-exclusion header, advertises a sitemap, or emits indexable metadata.
