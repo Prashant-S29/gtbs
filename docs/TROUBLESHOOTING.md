@@ -670,9 +670,9 @@
 
 ## Unexpected Git branch triggers a Vercel build
 
-**Cause:** unspecified `git.deploymentEnabled` branches default to enabled, or project settings override the repository topology.
+**Cause:** unspecified `git.deploymentEnabled` branches default to enabled, a single-star minimatch does not cover slash-containing names such as `docs/example`, or project settings override the repository topology. This was observed when the first documentation PR unexpectedly started a build; it failed safely because non-staging Preview secrets were absent.
 
-**Solution:** retain the deny-all `"*": false` rule plus explicit `main`/`staging` allowances in `vercel.json`, keep `main` configured as Vercel's Production Branch, and use a branch domain tied only to `staging`.
+**Solution:** retain both deny-all `"*": false` and globstar `"**": false` rules plus explicit `main`/`staging` allowances in `vercel.json`, keep `main` configured as Vercel's Production Branch, and use a branch domain tied only to `staging`. Exact allow rules still win because Vercel deploys when any matching rule is true.
 
 ## Blog/gallery changes disappear after deployment
 

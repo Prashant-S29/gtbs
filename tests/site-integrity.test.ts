@@ -579,6 +579,7 @@ test("Vercel previews are excluded from search indexing at every layer", () => {
   );
 
   assert.match(vercelConfig, /"\*": false/u);
+  assert.match(vercelConfig, /"\*\*": false/u);
   assert.match(vercelConfig, /"main": true/u);
   assert.match(vercelConfig, /"staging": true/u);
   assert.match(nextConfig, /X-Robots-Tag/u);
