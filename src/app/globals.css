@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-display: Georgia, "Times New Roman", ui-serif, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  top: 0 !important;
+}
+
+:focus-visible {
+  outline: 3px solid #f97316;
+  outline-offset: 3px;
+}
+
+.admin-product-input:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+
+.title {
+  font-family: var(--font-display) !important;
+}
+
+.description {
+  font-family: var(--font-sans) !important;
+}
+
+/* Gujarati copy is React-rendered from the storefront dictionary. */
+html[lang="gu"] .home-hero-content {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+html[lang="gu"] .home-hero-heading-group {
+  gap: 0.5rem;
+}
+
+html[lang="gu"] .home-hero-title {
+  line-height: 1.04;
+}
+
+html[lang="gu"] .home-hero-description {
+  margin-top: 0.75rem;
+}
+
+html[lang="gu"] .home-hero-actions {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  html[lang="gu"] .home-hero-content {
+    height: 420px;
+    min-height: 0;
+  }
+
+  html[lang="gu"] .home-hero-title {
+    font-size: 46px;
+  }
+}
+
+.number-input-no-spinner::-webkit-inner-spin-button,
+.number-input-no-spinner::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.number-input-no-spinner {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #f3f4f6 0%, #e5e7eb 50%, #f3f4f6 100%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Small devices */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+/* Medium devices */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+/* Large devices */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}
+
+/* Extra large devices */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+/* 2XL devices */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}

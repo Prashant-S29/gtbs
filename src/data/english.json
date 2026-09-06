@@ -1,0 +1,778 @@
+{
+  "language": {
+    "select": "Select Language",
+    "english": "English",
+    "gujarati": "Gujarati",
+    "englishNative": "English",
+    "gujaratiNative": "ગુજરાતી"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "All Products",
+    "about": "About",
+    "gallery": "Gallery",
+    "blogs": "Blogs",
+    "contact": "Contact",
+    "categories": "Categories",
+    "browseCategories": "Browse Categories",
+    "noCategories": "No categories available.",
+    "viewAllBooks": "View All Books",
+    "helpCenter": "Help Center",
+    "cart": "Cart"
+  },
+  "search": {
+    "placeholder": "Search books by title, author, genre...",
+    "clear": "Clear search",
+    "submit": "Search"
+  },
+  "action": {
+    "viewAll": "View All",
+    "buyNow": "Buy Now",
+    "addToCart": "Add to Cart",
+    "share": "Share",
+    "viewDetails": "View Product Details",
+    "readMore": "Read More"
+  },
+  "home": {
+    "hero": {
+      "badge": "Trusted Christian Bookstore",
+      "titleLine1": "Discover Books That Inspire",
+      "titleLine2": "Faith, Wisdom & Everyday Living",
+      "description": "Explore a carefully curated collection of Bibles, Christian books, devotionals, children's literature, magazines, gifts, and faith-based resources. Whether you're strengthening your spiritual journey, preparing for ministry, or looking for meaningful gifts, you'll find inspiring books for every age and season of life.",
+      "contact": "Contact",
+      "browse": "Browse Products"
+    },
+    "features": {
+      "collection": {
+        "title": "Premium Collection",
+        "description": "Discover carefully selected Christian books, Bibles, devotionals, and inspirational resources from trusted publishers."
+      },
+      "delivery": {
+        "title": "Fast Delivery",
+        "description": "Enjoy quick and reliable delivery across India with secure packaging to keep every order safe."
+      },
+      "whatsapp": {
+        "title": "Order on WhatsApp",
+        "description": "Send a product or your complete cart to GTBS on WhatsApp for availability, delivery, and payment confirmation."
+      },
+      "prices": {
+        "title": "Affordable Prices",
+        "description": "Quality Christian books and faith-based products at prices you'll love, with regular offers throughout the year."
+      }
+    },
+    "new": {
+      "title": "New Releases",
+      "description": "Explore the latest Christian books, devotionals, study guides, children's books, and inspiring titles recently added to our collection."
+    },
+    "best": {
+      "title": "Best Sellers",
+      "description": "Discover the books readers return to most, from trusted faith resources to practical guides and memorable stories."
+    },
+    "trending": {
+      "title": "Trending Products",
+      "description": "Explore popular books, Bibles, devotionals, and inspirational titles currently attracting readers."
+    },
+    "accessories": {
+      "title": "Our Accessories",
+      "description": "Thoughtful essentials for readers, gifting, and creating a peaceful study space with comfort and style."
+    },
+    "collection": {
+      "empty": "No products are currently assigned to this collection.",
+      "previous": "Previous {title}",
+      "next": "Next {title}"
+    },
+    "magazines": {
+      "title": "Our Magazines",
+      "description": "Discover inspiring Christian magazines filled with faith, stories, spiritual insights, and meaningful content for everyday life."
+    },
+    "categories": {
+      "badge": "Curated Bookstore Departments",
+      "title": "Explore Categories",
+      "description": "Find the right books, study resources, and faith-inspired titles from our carefully organized collections.",
+      "available": "Available",
+      "books": "{count}+ Books",
+      "browse": "Browse Collection",
+      "viewAll": "View All Categories & Full Library"
+    },
+    "why": {
+      "title": "Why Choose Our Christian Bookstore?",
+      "description": "We are committed to providing quality Christian books, helpful resources, affordable prices, and a trusted shopping experience for every reader.",
+      "imageAlt": "GTBS Christian Bookstore",
+      "collection": {
+        "title": "Trusted Christian Collection",
+        "description": "Carefully selected Christian books, Bibles, devotionals, and ministry resources."
+      },
+      "prices": {
+        "title": "Affordable Prices",
+        "description": "Enjoy competitive prices, special offers, and great value on every purchase."
+      },
+      "payments": {
+        "title": "Secure Payments",
+        "description": "Safe and secure payment options for a smooth and reliable shopping experience."
+      },
+      "returns": {
+        "title": "Easy Returns",
+        "description": "Simple return options for eligible products so you can shop with confidence."
+      },
+      "support": {
+        "title": "Excellent Support",
+        "description": "Our team is always ready to help you choose the right books and assist with orders."
+      }
+    },
+    "reviews": {
+      "badge": "Customer Reviews",
+      "title": "What Our Customers Say",
+      "description": "Discover what our readers and customers say about their experience with GTBS Book Store.",
+      "label": "Customer reviews",
+      "previous": "Previous reviews",
+      "next": "Next reviews",
+      "rating": "{rating} out of 5 stars"
+    },
+    "faq": {
+      "badge": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "subtitle": "Quick answers to common questions about orders, deliveries, and books."
+    },
+    "blogs": {
+      "title": "Latest Blogs",
+      "description": "Discover inspiring stories, helpful reading tips, and thoughtful book recommendations. Stay updated with fresh insights and explore something new with every read."
+    }
+  },
+  "product": {
+    "selectVariant": "Select {name}",
+    "added": "Added {quantity}x \"{title}\" to your cart!",
+    "storageError": "Your browser could not save the cart. Check storage permissions.",
+    "linkCopied": "Product link copied to clipboard!",
+    "shareError": "Unable to share this product. Please copy the page URL.",
+    "overviewTab": "Overview & Features",
+    "specificationsTab": "Specifications",
+    "overview": "Product Overview",
+    "highlights": "Key Highlights",
+    "specifications": "Product Specifications",
+    "noOverview": "No detailed overview is available for this product.",
+    "noSpecifications": "No specifications are available for this product.",
+    "related": "Related Products",
+    "relatedDescription": "Discover more products from this collection.",
+    "home": "Home",
+    "products": "Products",
+    "viewDetailsLabel": "View details for {title}",
+    "buyWhatsAppLabel": "Buy {title} now on WhatsApp",
+    "addToCartLabel": "Add {title} to cart",
+    "shareLabel": "Share {title}",
+    "shareMessage": "View {title} at GTBS Book Store",
+    "decreaseQuantity": "Decrease quantity",
+    "increaseQuantity": "Increase quantity",
+    "images": {
+      "thumbnails": "{title} image thumbnails",
+      "show": "Show {title} image {index}"
+    }
+  },
+  "cart": {
+    "badge": "Your Reading Bag",
+    "title": "Shopping Cart",
+    "emptyStatus": "Your cart is empty.",
+    "itemStatus": "{count} item in your cart.",
+    "itemsStatus": "{count} items in your cart.",
+    "emptyTitle": "Your Cart is Currently Empty",
+    "emptyDescription": "Explore the catalog and add books you would like to order.",
+    "browse": "Browse All Books",
+    "items": "Cart items",
+    "clear": "Clear cart",
+    "summary": "Order summary",
+    "subtotal": "Subtotal",
+    "notice": "Shipping and availability are confirmed by the bookstore before payment.",
+    "continue": "Continue shopping",
+    "updateError": "Your browser could not update the cart. Check storage permissions.",
+    "decreaseItem": "Decrease quantity of {title}",
+    "increaseItem": "Increase quantity of {title}",
+    "removeItem": "Remove {title} from cart",
+    "buyWhatsAppLabel": "Buy all selected products on WhatsApp"
+  },
+  "catalog": {
+    "title": "All Products",
+    "description": "Explore Christian books, Bibles, devotionals, gifts, and resources for every reader.",
+    "filters": "Filters",
+    "sort": "Sort:",
+    "featured": "Featured",
+    "topRated": "Top Rated",
+    "priceLowHigh": "Price: Low to High",
+    "priceHighLow": "Price: High to Low",
+    "reset": "Reset",
+    "resetAll": "Reset All",
+    "viewMore": "View More Books (+8)",
+    "noProducts": "No products match your current filters.",
+    "browseTitle": "Browse All Products",
+    "browseDescription": "Search and filter books, magazines, gifts, and reading resources.",
+    "searchBooks": "Search books...",
+    "searchDetailed": "Search by title, author, genre...",
+    "booksFound": "{count} books found",
+    "showingBooks": "Showing {count} books",
+    "category": "Category",
+    "categoryGenre": "Category / Genre",
+    "priceRange": "Price Range",
+    "allPrices": "All Prices",
+    "under300": "Under ₹300",
+    "range300600": "₹300 - ₹600",
+    "range6001000": "₹600 - ₹1000",
+    "above1000": "Above ₹1000",
+    "collections": "Collections",
+    "allCollections": "All Collections",
+    "accessories": "Accessories",
+    "active": "Active:",
+    "genreChip": "Genre: {value}",
+    "priceChip": "Price: {value}",
+    "collectionChip": "Collection: {value}",
+    "queryChip": "Query: {value}",
+    "clearAll": "Clear all",
+    "noBooksTitle": "No books match your filters",
+    "noBooksDescription": "Try selecting a different category or clearing your active filters to browse the full catalog.",
+    "showingOf": "Showing {visible} of {total} books",
+    "viewedAll": "You have viewed all {count} books in this collection.",
+    "filterBooks": "Filter Books",
+    "closeFilters": "Close filters",
+    "showBooks": "Show {count} Books",
+    "sortProducts": "Sort products",
+    "productResults": "Product results",
+    "noProductsCriteria": "No products found matching the selected criteria.",
+    "faq": {
+      "badge": "Shopping Guide",
+      "title": "Bookstore & Catalog FAQs",
+      "subtitle": "Frequently asked questions about book editions, shipping, and ordering."
+    }
+  },
+  "blog": {
+    "badge": "The GTBS Literary Journal",
+    "title": "Stories, Ideas & Book Wisdom",
+    "description": "Curated reading guides, author perspectives, book reviews, and mindful reading tips.",
+    "all": "All",
+    "search": "Search articles or topics...",
+    "empty": "No blog posts found matching your search.",
+    "read": "Read",
+    "showing": "Showing {visible} of {total} articles",
+    "viewMore": "View More Articles (+6)",
+    "viewedAll": "You have viewed all {count} articles in this collection.",
+    "detail": {
+      "recommended": "Recommended Next Step",
+      "moreTitle": "Want to read more? Grab the complete book!",
+      "moreDescription": "Discover the full edition, author insights, and transformative chapters in our bookstore collection. Get your copy with fast delivery.",
+      "browse": "Browse Bookstore",
+      "related": "Related Articles"
+    },
+    "faq": {
+      "badge": "Literary Journal",
+      "title": "Book Reviews & Blog FAQs",
+      "subtitle": "Frequently asked questions about guest submissions, book curation, and reading lists."
+    }
+  },
+  "gallery": {
+    "badge": "Moments & Memories",
+    "title": "Photo Gallery & Events",
+    "description": "Step inside our bookstore events, author meetups, community story sessions, and literary exhibitions.",
+    "all": "All",
+    "search": "Search gallery & events...",
+    "empty": "No gallery albums found matching your search.",
+    "photos": "{count} Photos",
+    "viewCollection": "View Full Photo Collection",
+    "showing": "Showing {visible} of {total} photo albums",
+    "viewMore": "View More Albums (+6)",
+    "viewedAll": "You have viewed all {count} photo albums in this collection.",
+    "organizedBy": "Organized by",
+    "detail": {
+      "about": "About This Event",
+      "photoCollection": "Photo Collection ({count})",
+      "photoHint": "Click any photo to enlarge and browse",
+      "explore": "Explore More Albums",
+      "photosLower": "{count} photos"
+    },
+    "lightbox": {
+      "open": "Open photo: {title}",
+      "viewMore": "View more photos",
+      "showing": "Showing {visible} of {total}",
+      "close": "Close photo viewer",
+      "previous": "View previous photo",
+      "next": "View next photo"
+    },
+    "faq": {
+      "badge": "Events & Exhibitions",
+      "title": "Bookstore Gallery & Events FAQ",
+      "subtitle": "Common questions about event admissions, photography rights, and hosting book launches."
+    }
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "title": "We'd Love to Hear From You!",
+    "description": "Have a question, suggestion, or need help? Our team is here for you. Reach out and we'll get back to you as soon as possible.",
+    "email": "Email Us",
+    "call": "Call Us",
+    "visit": "Visit Us",
+    "imageAlt": "Contact us",
+    "form": {
+      "title": "Send us a Message",
+      "description": "Have a question or need assistance? Fill out the form below, and our team will respond as quickly as possible.",
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "phonePlaceholder": "Enter your phone number",
+      "phoneLabel": "10-digit Indian phone number",
+      "email": "Email address",
+      "emailPlaceholder": "Enter your email",
+      "message": "Message",
+      "messagePlaceholder": "Your Message",
+      "sending": "Sending...",
+      "send": "Send Message",
+      "success": "Your message has been sent successfully!",
+      "failure": "Something went wrong. Please try again.",
+      "unavailable": "Online messaging is temporarily unavailable. Please email or call us instead."
+    },
+    "mapTitle": "GTBS Store Location",
+    "faq": {
+      "badge": "Support & Inquiries",
+      "title": "Contact & Customer Service FAQs",
+      "subtitle": "Quick solutions to questions regarding visits, customer support, and communication."
+    }
+  },
+  "errors": {
+    "notFound": {
+      "badge": "Error 404",
+      "title": "Page Not Found",
+      "description": "The page may have moved, or the address may be incorrect. Return home or continue browsing our bookstore.",
+      "home": "Home",
+      "browse": "Browse Books"
+    },
+    "generic": {
+      "title": "Something Went Wrong",
+      "description": "We could not load this page. Please try again, or return to the storefront.",
+      "retry": "Try again",
+      "home": "Return home"
+    }
+  },
+  "common": {
+    "breadcrumb": "Breadcrumb",
+    "newsletterRequest": "Request email updates",
+    "skipToContent": "Skip to main content",
+    "emailUs": "Email us",
+    "callNumber": "Call {number}",
+    "storeHome": "Book Store Home",
+    "storeLogo": "Book Store Logo",
+    "openCart": "Open cart",
+    "openCartItems": "Open cart, {count} items",
+    "openNavigation": "Open navigation menu",
+    "mobileNavigation": "Mobile navigation",
+    "closeNavigation": "Close navigation menu"
+  },
+  "whatsapp": {
+    "defaultMessage": "Hello GTBS! I would like to inquire about books and orders.",
+    "tooltip": "Chat with us on WhatsApp",
+    "label": "Chat on WhatsApp with +91 7490028867"
+  },
+  "about": {
+    "story": {
+      "badge": "Our Story",
+      "titleLine1": "More Than a Bookstore,",
+      "titleLine2": "We Create Reading Experiences.",
+      "paragraph1": "At GTBS Book Store, our story began with a simple belief — every great book and faith-filled resource has the power to change the way we think, learn, and see the world.",
+      "paragraph2": "What started as a mission for discovering meaningful Christian literature and Holy Bibles has grown into a trusted destination for readers and communities. From timeless classics to spiritual devotionals, we carefully bring together books that inspire faith, curiosity, and spiritual growth.",
+      "booksAvailable": "Books Available",
+      "happyReaders": "Happy Readers",
+      "readerRating": "Reader Rating",
+      "imageAlt": "A cozy reading space surrounded by books at GTBS",
+      "since": "Since 2010",
+      "overlay": "Inspiring Readers, One Book at a Time."
+    },
+    "vision": {
+      "badge": "Our Vision",
+      "title": "Inspiring a World of Readers",
+      "description": "Our vision is to make reading an inspiring and meaningful part of everyday life. We want every reader to easily discover books that spark imagination, encourage learning, and create lasting connections with stories.",
+      "point1": "Discover books for every interest",
+      "point2": "Inspire lifelong reading habits",
+      "point3": "Connect readers with meaningful stories"
+    },
+    "mission": {
+      "badge": "Our Mission",
+      "title": "Helping You Find Your Next Great Read",
+      "description": "We are more than just an online bookstore. Our mission is to help readers discover quality books through carefully curated collections, an easy shopping experience, and dependable service from book discovery to delivery.",
+      "point1": "Curated collections for every reader",
+      "point2": "Quality books at great value",
+      "point3": "Hassle-free online book shopping",
+      "imageAlt": "Stack of books representing our vision and mission to connect readers with quality books"
+    },
+    "team": {
+      "title": "Meet the Team",
+      "description": "A team of book lovers working behind the scenes to bring you the best reading and shopping experience."
+    },
+    "why": {
+      "badge": "Why Choose GTBS Books?",
+      "title": "Built for Book Lovers",
+      "selection": {
+        "title": "Wide Selection",
+        "description": "Thousands of books across every genre and category."
+      },
+      "prices": {
+        "title": "Best Prices",
+        "description": "Competitive pricing and exclusive offers on your favorite books."
+      },
+      "delivery": {
+        "title": "Quick Delivery",
+        "description": "Fast and reliable shipping delivered straight to your doorstep."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "We're here to help whenever you need assistance."
+      }
+    },
+    "faq": {
+      "badge": "Learn More About Us",
+      "title": "About GTBS FAQ",
+      "subtitle": "Everything you need to know about our history, collections, and publishing values."
+    }
+  },
+  "policies": {
+    "common": {
+      "effective": "Effective date: September 5, 2026",
+      "store": "Gujarat Tract Book Store",
+      "hours": "Monday - Saturday, 10:00 AM - 6:00 PM"
+    },
+    "privacy": {
+      "badge": "Your privacy matters",
+      "title": "Privacy Policy",
+      "description": "How Gujarat Tract Book Store collects, uses, stores, and safeguards your information.",
+      "intro": "At Gujarat Tract Book Store, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and safeguard your information when you visit our website, submit the Contact form, or choose to send a Product request through WhatsApp.",
+      "agreement": "By using our website, you agree to the practices described in this Privacy Policy.",
+      "sections": {
+        "section1": {
+          "title": "Information We Collect",
+          "body": "We may collect personal information such as your full name, email address, phone number, and shipping address. Your browser-local Cart stores selected Products, quantities, variants, displayed prices, and Product links. Technical information may include IP address, browser and device type, operating system, pages visited, visit dates and times, and cookies or similar technologies."
+        },
+        "section2": {
+          "title": "How We Use Your Information",
+          "body": "We use information to respond to WhatsApp order requests, provide customer support, answer inquiries, send order and shipping updates, improve our website and services, detect fraud, maintain security, comply with legal obligations, and send promotions or newsletters only when you choose to receive them."
+        },
+        "section3": {
+          "title": "Payment Information",
+          "body": "This website does not collect or process payments. GTBS confirms payment options only after reviewing your WhatsApp request. Never send a UPI PIN, card PIN, password, or banking credential through the website or WhatsApp."
+        },
+        "section4": {
+          "title": "Cookies",
+          "body": "The public storefront does not show a cookie-preference banner or store a consent choice. A signed secure session cookie protects the Admin area after login, while the English or Gujarati preference and public Cart are stored in browser local storage. We do not currently use analytics, advertising, or personalization cookies. Disabling cookies may prevent the Admin login session from working correctly."
+        },
+        "section5": {
+          "title": "Information Sharing",
+          "body": "We do not sell or rent personal information. We share only necessary information with WhatsApp/Meta when you send an order request, Resend when you submit the Contact form, delivery and courier partners, hosting and technology providers, or government authorities when required by law. Partners receive only what they need to perform their services."
+        },
+        "section6": {
+          "title": "Data Security",
+          "body": "We use reasonable administrative, technical, and organizational safeguards against unauthorized access, misuse, alteration, or disclosure. No method of internet transmission or electronic storage is completely secure."
+        },
+        "section7": {
+          "title": "Your Rights",
+          "body": "You may ask to access, update, or correct your information; request deletion of inquiry information subject to legal duties; withdraw marketing consent; or ask what personal data we hold. Contact us using the details below to exercise these rights."
+        },
+        "section8": {
+          "title": "Marketing Communications",
+          "body": "If you subscribe, we may send new releases, special offers, seasonal promotions, reading recommendations, and event announcements. You can unsubscribe using the link in our emails or by contacting us directly."
+        },
+        "section9": {
+          "title": "Third-Party Services",
+          "body": "Our website may link to or use services such as WhatsApp, Resend, image hosting, shipping providers, and other third parties. We are not responsible for their privacy practices or content. Review their policies before sharing personal information."
+        },
+        "section10": {
+          "title": "Children's Privacy",
+          "body": "Our website is for general audiences. We do not knowingly collect personal information from children under 13 without parent or guardian consent. Contact us if you believe a child provided personal information so we can act appropriately."
+        },
+        "section11": {
+          "title": "Data Retention",
+          "body": "We keep personal information only as long as needed to complete orders, answer inquiries, comply with legal and tax duties, resolve disputes, and enforce agreements. Information no longer required is securely deleted or anonymized."
+        },
+        "section12": {
+          "title": "Policy Updates",
+          "body": "We may update this policy when services, legal requirements, or business practices change. Updates appear on this page with a revised effective date. Please review it periodically."
+        },
+        "section13": {
+          "title": "Contact Us",
+          "body": "If you have questions about this Privacy Policy or how your information is handled, contact us using the details below."
+        }
+      }
+    },
+    "terms": {
+      "badge": "Website and purchase terms",
+      "title": "Terms & Conditions",
+      "description": "The terms governing your use of Gujarat Tract Book Store and purchases requested through WhatsApp.",
+      "intro": "Welcome to Gujarat Tract Book Store. These Terms & Conditions govern your use of our website and Product requests sent to GTBS through WhatsApp.",
+      "agreement": "By accessing or using our website, you agree to these terms. If you disagree with any part, please stop using the website.",
+      "sections": {
+        "section1": {
+          "title": "About Gujarat Tract Book Store",
+          "body": "Gujarat Tract Book Store provides Christian books, Holy Bibles, devotionals, children's books, educational resources, magazines, gifts, and faith-inspired products. We serve readers, families, churches, ministries, and educational institutions with authentic publications and a smooth shopping experience."
+        },
+        "section2": {
+          "title": "Acceptance of Terms",
+          "body": "By visiting the website, adding Products to the browser-local Cart, sending a WhatsApp request, or using our services, you confirm that you have read, understood, and accepted these Terms & Conditions."
+        },
+        "section3": {
+          "title": "Eligibility",
+          "body": "To request an order through WhatsApp, you must be at least 18 or have parent or legal-guardian permission, provide accurate and complete information, and use the website only for lawful purposes."
+        },
+        "section4": {
+          "title": "Products & Availability",
+          "body": "We aim to keep Product information current, but availability may change without notice. Images are illustrative and may differ slightly. Book editions, covers, or publishers may vary based on availability."
+        },
+        "section5": {
+          "title": "Pricing",
+          "body": "Prices are shown in Indian Rupees and may change without notice because of publisher revisions, promotions, taxes, or market conditions. GTBS confirms the final Product total and delivery charges in WhatsApp before payment."
+        },
+        "section6": {
+          "title": "Orders",
+          "body": "Buy Now and Cart prepare a WhatsApp message for you to review and send. A request becomes an accepted order only after GTBS confirms availability, delivery charges, final total, and payment instructions. We may decline or cancel for pricing errors, stock shortages, suspected fraud, or delivery limits. Refund Policy applies if an accepted paid order is cancelled."
+        },
+        "section7": {
+          "title": "Payments",
+          "body": "The website does not collect or process payment. GTBS provides payment methods and instructions only after confirming the WhatsApp order. Never send a UPI PIN, card PIN, password, or banking credential through the website or WhatsApp."
+        },
+        "section8": {
+          "title": "Shipping & Delivery",
+          "body": "Delivery time varies by location and availability. Delays may arise from courier partners, disasters, government restrictions, holidays, or an incorrect address. Customers must provide accurate shipping information."
+        },
+        "section9": {
+          "title": "Returns & Refunds",
+          "body": "Returns and refunds follow our Return & Refund Policy. Products generally must be unused, in original condition and packaging, and otherwise eligible. Digital or downloadable content and items damaged after delivery may not qualify unless applicable law requires it."
+        },
+        "section10": {
+          "title": "Browser-local Cart",
+          "body": "The website has no customer accounts. Cart data exists only in your current browser. Adding a Product does not reserve stock or lock price. Review names, quantities, variants, and links before sending the WhatsApp message."
+        },
+        "section11": {
+          "title": "Intellectual Property",
+          "body": "Logos, design, graphics, Product descriptions, images, icons, text, and Blog content belong to GTBS or its licensors and are protected by applicable intellectual-property law. Copying, reproduction, distribution, or commercial use requires written permission."
+        },
+        "section12": {
+          "title": "Acceptable Use",
+          "body": "You must not violate laws, attempt unauthorized system access, upload malicious code, scrape content with automated tools, or interfere with website operation. Violations may suspend or terminate access."
+        },
+        "section13": {
+          "title": "Third-Party Links",
+          "body": "External links may be provided for information. GTBS is not responsible for third-party content, privacy practices, services, or products. You access those sites at your discretion."
+        },
+        "section14": {
+          "title": "Limitation of Liability",
+          "body": "To the fullest extent allowed by law, GTBS is not liable for indirect damage, consequential loss, business interruption, data loss, third-party delays, or technical interruptions beyond our control. Total liability will not exceed the value of the customer's order."
+        },
+        "section15": {
+          "title": "Privacy",
+          "body": "Use of this website is also governed by our Privacy Policy, which explains how we collect, use, and protect personal information."
+        },
+        "section16": {
+          "title": "Changes to Terms",
+          "body": "We may update these Terms & Conditions at any time. Updated versions appear here with a revised effective date. Continued use after publication means you accept the updated terms."
+        },
+        "section17": {
+          "title": "Governing Law",
+          "body": "These terms are governed by Indian law. Disputes are subject to the competent courts in the city where Gujarat Tract Book Store operates."
+        },
+        "section18": {
+          "title": "Contact Us",
+          "body": "If you have questions about these Terms & Conditions, contact us using the details below."
+        }
+      }
+    },
+    "shipping": {
+      "badge": "Safe and reliable delivery",
+      "title": "Shipping & Delivery Policy",
+      "description": "How we process, ship, track, and deliver your Gujarat Tract Book Store orders.",
+      "intro": "Thank you for shopping with Gujarat Tract Book Store. We are committed to delivering books and faith-inspired products safely and on time. This policy explains how orders are processed, shipped, tracked, and delivered.",
+      "sections": {
+        "section1": {
+          "title": "Order Processing",
+          "body": "After an order is placed and payment is confirmed, processing usually takes 1–2 business days. Sunday and public-holiday orders start on the next business day. Sales, festivals, or high demand may take longer. We send an email or SMS after processing."
+        },
+        "section2": {
+          "title": "Shipping Coverage",
+          "body": "We deliver across India through reliable courier partners to serviceable addresses. For international shipping, contact customer support before placing an order."
+        },
+        "section3": {
+          "title": "Delivery Time",
+          "body": "Estimated delivery is 1–2 business days for metro cities, 2–3 for other cities, and 3–5 for rural or remote areas. These estimates can change because of courier operations or unforeseen circumstances."
+        },
+        "section4": {
+          "title": "Shipping Charges",
+          "body": "GTBS confirms shipping charges in WhatsApp based on delivery location, order value, package weight, and selected shipping method before you complete the purchase."
+        },
+        "section5": {
+          "title": "Free Shipping",
+          "body": "Free shipping may apply to eligible orders meeting a minimum value. GTBS confirms any offer in WhatsApp before accepting the order."
+        },
+        "section6": {
+          "title": "Order Tracking",
+          "body": "After dispatch, we send a shipping confirmation by email or SMS. Use the supplied tracking information to monitor delivery."
+        },
+        "section7": {
+          "title": "Delivery Attempts",
+          "body": "Courier partners make one or more attempts. Delivery can fail because of an incorrect address, unavailable recipient, or invalid contact details. Returned packages and requested re-delivery may incur additional shipping charges."
+        },
+        "section8": {
+          "title": "Packaging",
+          "body": "Every order is carefully packed to protect books and other products in transit and help them arrive in excellent condition."
+        },
+        "section9": {
+          "title": "Damaged or Missing Items",
+          "body": "For a damaged, incomplete, or incorrect order, contact us within 48 hours, include the order number, and provide clear package and Product photographs when applicable. We will review the request and provide an appropriate resolution."
+        },
+        "section10": {
+          "title": "Delivery Delays",
+          "body": "Delays may occur because of severe weather, disasters, holidays, government restrictions, courier disruption, or unexpected logistics. We appreciate your patience and will provide updates when possible."
+        },
+        "section11": {
+          "title": "Incorrect Shipping Information",
+          "body": "Customers must provide accurate shipping and contact details during WhatsApp confirmation. GTBS is not responsible for delay or failure caused by incomplete information. Contact us immediately after noticing an error; we will try to update it before dispatch."
+        },
+        "section12": {
+          "title": "Undeliverable Orders",
+          "body": "If an order returns because it could not be delivered, we will contact you to arrange re-delivery. Additional shipping charges may apply depending on the reason."
+        },
+        "section13": {
+          "title": "Contact Us",
+          "body": "If you have questions about shipping or delivery, contact us using the details below."
+        },
+        "section14": {
+          "title": "Shipping Summary",
+          "body": "Processing: 1–2 business days. Coverage: across India. Delivery: approximately 2–10 business days depending on location. Tracking is available after dispatch, secure packaging is included, and customer support is available for shipping assistance."
+        }
+      }
+    }
+  },
+  "faqContent": {
+    "home": {
+      "item1": {
+        "question": "How long does shipping take?",
+        "answer": "Most domestic orders are delivered within 3–7 business days depending on your location. GTBS confirms the available delivery options in WhatsApp before accepting the order."
+      },
+      "item2": {
+        "question": "Do you offer international shipping?",
+        "answer": "Yes, we ship books to selected international destinations. Delivery timeframes and customs duties vary by region."
+      },
+      "item3": {
+        "question": "Can I return or exchange a book?",
+        "answer": "Yes! We offer a 30-day hassle-free return policy for unopened and undamaged books in their original condition."
+      },
+      "item4": {
+        "question": "Do you offer gift wrapping and personalized notes?",
+        "answer": "Yes, complimentary gift wrapping and customizable dedication cards are available for selected book orders."
+      },
+      "item5": {
+        "question": "How can I track my order?",
+        "answer": "As soon as your package is dispatched, we send an email with an active tracking link to monitor your delivery progress in real time."
+      }
+    },
+    "about": {
+      "item1": {
+        "question": "What is the mission of GTBS Bookstore?",
+        "answer": "Our mission is to inspire, educate, and empower readers of all ages with curated Christian literature, Holy Bibles, spiritual devotionals, and transformative faith-based resources."
+      },
+      "item2": {
+        "question": "When was the bookstore founded?",
+        "answer": "We have been faithfully serving literature lovers and faith communities since 2010 with quality books, author events, and educational outreach."
+      },
+      "item3": {
+        "question": "Are your books authentic first-party editions?",
+        "answer": "100% yes. All our titles are sourced directly from certified global publishers and official distributor houses."
+      },
+      "item4": {
+        "question": "Do you host author signings and literary gatherings?",
+        "answer": "Yes! We host monthly literary events, book launch celebrations, and open reading workshops. Check our Gallery page for past and upcoming events."
+      },
+      "item5": {
+        "question": "How do you support youth and school literacy?",
+        "answer": "We run monthly Children's Story Hours, partner with local libraries, and provide discounted educational book packs to schools and reading clubs."
+      }
+    },
+    "contact": {
+      "item1": {
+        "question": "How can I reach customer support?",
+        "answer": "You can reach our team via email at support@gtbsbooks.com or call us directly at +91 9265429338 or +91 7490028867 during business hours."
+      },
+      "item2": {
+        "question": "What are your operating store hours?",
+        "answer": "Our physical bookstore is open Monday to Saturday from 9:30 AM to 7:30 PM. Our online platform operates 24/7."
+      },
+      "item3": {
+        "question": "Where is the flagship bookstore located?",
+        "answer": "Our store is located at Sahitya Seva Sadan, Shahid Veer Kinariwala Marg, I P Mission Compound, Ellisbridge, Ahmedabad, Gujarat 380006."
+      },
+      "item4": {
+        "question": "How quickly do you respond to customer inquiries?",
+        "answer": "We respond to all online inquiries within 24 business hours. For immediate assistance, feel free to contact us via WhatsApp or phone."
+      },
+      "item5": {
+        "question": "Can I place bulk or custom institutional orders through contact?",
+        "answer": "Yes! Use our contact form or email our corporate sales team for special bulk pricing, school libraries, and custom book hampers."
+      }
+    },
+    "gallery": {
+      "item1": {
+        "question": "Can anyone attend bookstore events and exhibitions?",
+        "answer": "Yes! Most of our book fairs, storytelling hours, and reading gatherings are free and open to the public. Certain special gala nights may require prior RSVP."
+      },
+      "item2": {
+        "question": "How can authors or publishers host a book launch at GTBS?",
+        "answer": "Authors and publishers can submit an event proposal via our Contact page or email our events committee. We provide venue, audiovisual, and event promotion support."
+      },
+      "item3": {
+        "question": "Are photos from past events available for download or media use?",
+        "answer": "Photos featured in our gallery are available for media coverage and attendees. For high-resolution press packages, please contact our PR team."
+      },
+      "item4": {
+        "question": "How frequently are new event photo albums published?",
+        "answer": "We publish event photo albums within 48 to 72 hours following each major bookstore gathering, author signing, or literary festival."
+      },
+      "item5": {
+        "question": "Can I submit photos taken during community events to be featured?",
+        "answer": "We love sharing community moments! Tag us on social media with #GTBSMoments or send photos to our events email."
+      }
+    },
+    "blogs": {
+      "item1": {
+        "question": "How often is the GTBS literary journal updated?",
+        "answer": "We publish fresh reading guides, book reviews, author interviews, and mindfulness tips regularly."
+      },
+      "item2": {
+        "question": "Can guest writers and critics submit articles for publication?",
+        "answer": "Yes! We welcome thought-provoking essays, book critiques, and reading essays from passionate readers and writers. Submit pitches via our contact channel."
+      },
+      "item3": {
+        "question": "How are the recommended books chosen in the blog articles?",
+        "answer": "Our editorial team and literary critics independently review each title based on narrative craft, cultural significance, and reader impact."
+      },
+      "item4": {
+        "question": "Can I subscribe to get blog digests directly in my inbox?",
+        "answer": "Yes! Subscribe to our newsletter at the bottom of any page to receive weekly curated articles and exclusive book promotions."
+      }
+    },
+    "shop": {
+      "item1": {
+        "question": "What book formats are available in the shop?",
+        "answer": "Depending on the title, we offer Hardcover, Paperback, E-Book (EPUB/PDF), and Audiobook editions."
+      },
+      "item2": {
+        "question": "How do I know if a book is in stock?",
+        "answer": "Use Buy Now or send your Cart on WhatsApp. GTBS confirms current availability before accepting the order."
+      },
+      "item3": {
+        "question": "Do you offer discounts on bundle purchases?",
+        "answer": "Yes, we regularly offer seasonal bundle promotions and multi-book discounts across series and genre collections."
+      },
+      "item4": {
+        "question": "What payment methods are supported?",
+        "answer": "Payment options are confirmed by GTBS on WhatsApp after product availability, delivery location, and the final total are verified. The website itself does not collect payment."
+      }
+    }
+  },
+  "footer": {
+    "description": "Welcome to GTBS Book Store, your trusted destination for Christian books, Holy Bibles, devotionals, study guides, children's books, magazines, and faith-inspired gifts.",
+    "quickLinks": "Quick Links",
+    "policyLinks": "Policy Links",
+    "contact": "Contact Information",
+    "privacy": "Privacy Policy",
+    "terms": "Terms and Conditions",
+    "shipping": "Shipping and Delivery Policy",
+    "rights": "© {year} GTBS Book Store. All rights reserved.",
+    "serving": "Faithfully serving readers since 2010."
+  }
+}

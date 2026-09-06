@@ -1,0 +1,14 @@
+# Dependencies and generated output
+node_modules
+.next
+out
+build
+coverage
+*.tsbuildinfo
+next-env.d.ts
+
+# Generated package metadata
+pnpm-lock.yaml
+
+# Repository automation instructions
+AGENTS.md

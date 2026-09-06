@@ -1,0 +1,30 @@
+diff --git a/server/index.cjs b/server/index.cjs
+index c35dfb4ed684e0e526ad964ac0ab851ae5296e42..4b91236da00345cdc7c907108f5bb73620a4b791 100644
+--- a/server/index.cjs
++++ b/server/index.cjs
+@@ -125,8 +125,8 @@ const uploadFile = (file, opts) => effect_Effect.gen(function* () {
+ 	})));
+ 	return {
+ 		key: presigned.key,
+-		url: response.url,
+-		appUrl: response.appUrl,
++		url: response.ufsUrl,
++		appUrl: response.ufsUrl,
+ 		ufsUrl: response.ufsUrl,
+ 		lastModified: file.lastModified ?? Date.now(),
+ 		name: file.name,
+diff --git a/server/index.js b/server/index.js
+index 08c7dbf7da916dd3118fb634e1b6928bf5e9486e..1c4b8a3452c6dca5119daf20e2e4186d54f6c6e0 100644
+--- a/server/index.js
++++ b/server/index.js
+@@ -124,8 +124,8 @@ const uploadFile = (file, opts) => Effect.gen(function* () {
+ 	})));
+ 	return {
+ 		key: presigned.key,
+-		url: response.url,
+-		appUrl: response.appUrl,
++		url: response.ufsUrl,
++		appUrl: response.ufsUrl,
+ 		ufsUrl: response.ufsUrl,
+ 		lastModified: file.lastModified ?? Date.now(),
+ 		name: file.name,
