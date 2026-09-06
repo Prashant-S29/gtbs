@@ -644,6 +644,14 @@
 
 **Solution:** keep `VERCEL_ENV` provider-owned, assign the domain specifically to the `staging` Preview branch, redeploy that branch, and verify `curl -I https://staging.gtbsbooks.com/` contains `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex`; `curl https://staging.gtbsbooks.com/robots.txt` must contain `Disallow: /`, and rendered HTML must contain noindex robots metadata. Remove any already indexed staging URL through the relevant search-console removal tool after directives are live.
 
+## Vercel build warns that it detected an uploaded `.env`
+
+**Symptom observed 2026-09-06:** the first successful CLI Production build warned that a source `.env` file was present even though Git ignored it.
+
+**Cause:** Vercel CLI source-file selection is separate from Git's index; `.gitignore` did not provide an explicit CLI upload boundary.
+
+**Resolved 2026-09-06:** committed `.vercelignore` excludes `.env`, every `.env.*` variant, `.vercel/`, `.git/`, `.next/`, and dependencies. Redeploy and require the warning to be absent. Environment values remain configured through Vercel's scoped Secret/Config store; never depend on an uploaded local file.
+
 ## Unexpected Git branch triggers a Vercel build
 
 **Cause:** unspecified `git.deploymentEnabled` branches default to enabled, or project settings override the repository topology.

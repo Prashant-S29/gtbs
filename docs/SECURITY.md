@@ -5,7 +5,7 @@ This records implemented controls and known risks; it is not a formal security c
 ## Secrets
 
 - Real values belong in local/deployment secret configuration, never source or Markdown.
-- `.env.example` contains placeholders only.
+- `.env.example` contains placeholders only. `.vercelignore` separately excludes local `.env*` and Vercel-link files from CLI source uploads; `.gitignore` alone is not the deployment-upload boundary.
 - Admin passwords/hashes are Better Auth credential records in PostgreSQL. They are never deployment environment values or files; `pnpm admin:setup` reads the initial password only from a hidden interactive terminal.
 - `BETTER_AUTH_SECRET` must be stable across deployments and contain at least 32 random characters.
 - Production requires matching credential-free HTTPS `NEXT_PUBLIC_SITE_URL` and `BETTER_AUTH_URL` origins; Admin auth fails closed otherwise.

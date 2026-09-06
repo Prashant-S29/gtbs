@@ -73,6 +73,11 @@
 - Dialogs and lightboxes need a programmatic name, Escape behavior, focus management/return, and background scroll restoration.
 - Public pages expose a keyboard skip link to the primary content region.
 
+## Deployment source boundaries
+
+- Git ignore rules and Vercel CLI upload rules are separate. Keep `.env`, `.env.*`, `.vercel/`, generated output, and dependencies excluded through `.vercelignore`; a successful CLI build must not report that it detected an uploaded `.env` file.
+- Keep branch auto-deployment policy in the committed `vercel.json`; domain-to-branch and production-branch assignments remain provider configuration.
+
 ## Errors
 
 - Never expose stack traces, credentials, or internal config to users.

@@ -122,7 +122,7 @@ Update every topic document whose facts changed. New errors and resolutions belo
 
 ## Git and files
 
-- Never commit `.env`, generated output, credentials, or tokens.
+- Never commit or upload `.env`, `.env.*`, generated output, credentials, tokens, or local Vercel metadata; maintain both `.gitignore` and `.vercelignore` because Git and CLI deployment have separate file-selection boundaries.
 - Do not overwrite unrelated user work.
 - Avoid destructive Git/filesystem actions without authorization.
 - Keep `.next/` and TypeScript build output out of source changes.
