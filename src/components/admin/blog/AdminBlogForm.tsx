@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, ImageUp, Save } from "lucide-react";
 import { toast } from "sonner";
 
 import AdminRichTextEditor from "@/components/admin/blog/AdminRichTextEditor";
+import AdminGujaratiSuggestion from "@/components/admin/AdminGujaratiSuggestion";
 import AdminBilingualFormSteps, {
   type AdminContentLanguage,
 } from "@/components/admin/AdminBilingualFormSteps";
@@ -15,6 +16,7 @@ import {
   blogRichTextToPlainText,
   blogToGujaratiRichText,
   blogToRichText,
+  plainTextToBlogRichText,
   MAX_BLOG_CONTENT_CHARACTERS,
   MAX_BLOG_RICH_TEXT_JSON_CHARACTERS,
 } from "@/lib/blogRichText";
@@ -401,9 +403,15 @@ export default function AdminBlogForm({ initialItem }: AdminBlogFormProps) {
             This saved content is shown when the storefront language is
             Gujarati.
           </p>
-          <label className="sm:col-span-2 text-sm font-semibold">
-            Gujarati title
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="blog-gujarati-title"
+              className="text-sm font-semibold"
+            >
+              Gujarati title
+            </label>
             <input
+              id="blog-gujarati-title"
               name="gujaratiTitle"
               lang="gu"
               required={formLanguage === "gu"}
@@ -411,10 +419,21 @@ export default function AdminBlogForm({ initialItem }: AdminBlogFormProps) {
               defaultValue={initialItem?.gujarati?.title}
               className={inputClass}
             />
-          </label>
-          <label className="sm:col-span-2 text-sm font-semibold">
-            Gujarati category
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="title"
+              targetName="gujaratiTitle"
+            />
+          </div>
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="blog-gujarati-category"
+              className="text-sm font-semibold"
+            >
+              Gujarati category
+            </label>
             <input
+              id="blog-gujarati-category"
               name="gujaratiCategory"
               lang="gu"
               required={formLanguage === "gu"}
@@ -422,10 +441,21 @@ export default function AdminBlogForm({ initialItem }: AdminBlogFormProps) {
               defaultValue={initialItem?.gujarati?.category}
               className={inputClass}
             />
-          </label>
-          <label className="text-sm font-semibold">
-            Gujarati author name
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="category"
+              targetName="gujaratiCategory"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="blog-gujarati-author-name"
+              className="text-sm font-semibold"
+            >
+              Gujarati author name
+            </label>
             <input
+              id="blog-gujarati-author-name"
               name="gujaratiAuthorName"
               lang="gu"
               required={formLanguage === "gu"}
@@ -433,10 +463,21 @@ export default function AdminBlogForm({ initialItem }: AdminBlogFormProps) {
               defaultValue={initialItem?.gujarati?.author.name}
               className={inputClass}
             />
-          </label>
-          <label className="text-sm font-semibold">
-            Gujarati author role
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="authorName"
+              targetName="gujaratiAuthorName"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="blog-gujarati-author-role"
+              className="text-sm font-semibold"
+            >
+              Gujarati author role
+            </label>
             <input
+              id="blog-gujarati-author-role"
               name="gujaratiAuthorRole"
               lang="gu"
               required={formLanguage === "gu"}
@@ -444,7 +485,12 @@ export default function AdminBlogForm({ initialItem }: AdminBlogFormProps) {
               defaultValue={initialItem?.gujarati?.author.role}
               className={inputClass}
             />
-          </label>
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="authorRole"
+              targetName="gujaratiAuthorRole"
+            />
+          </div>
           <div className="sm:col-span-2" lang="gu">
             <p className="mb-1.5 text-sm font-semibold">
               Gujarati article content
@@ -458,6 +504,18 @@ export default function AdminBlogForm({ initialItem }: AdminBlogFormProps) {
                 if (gujaratiArticleError) setGujaratiArticleError("");
               }}
             />
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceText={blogRichTextToPlainText(richContent)}
+              targetText={blogRichTextToPlainText(gujaratiRichContent)}
+              onApply={(suggestion) =>
+                setGujaratiRichContent(plainTextToBlogRichText(suggestion))
+              }
+            />
+            <p className="mt-1.5 text-xs text-slate-500" lang="en">
+              Applying an article suggestion creates editable Gujarati
+              paragraphs; review headings, links, and formatting before saving.
+            </p>
           </div>
         </fieldset>
         <div className="sm:col-span-2 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">

@@ -17,6 +17,7 @@ import { MAX_GALLERY_PHOTOS } from "@/lib/imageRules";
 import AdminBilingualFormSteps, {
   type AdminContentLanguage,
 } from "@/components/admin/AdminBilingualFormSteps";
+import AdminGujaratiSuggestion from "@/components/admin/AdminGujaratiSuggestion";
 
 interface AdminGalleryFormProps {
   initialItem?: GalleryItem;
@@ -330,9 +331,15 @@ export default function AdminGalleryForm({
             This saved content is shown when the storefront language is
             Gujarati.
           </p>
-          <label className="sm:col-span-2 text-sm font-semibold">
-            Gujarati title
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="gallery-gujarati-title"
+              className="text-sm font-semibold"
+            >
+              Gujarati title
+            </label>
             <input
+              id="gallery-gujarati-title"
               name="gujaratiTitle"
               lang="gu"
               required={formLanguage === "gu"}
@@ -340,10 +347,21 @@ export default function AdminGalleryForm({
               defaultValue={initialItem?.gujarati?.title}
               className={inputClass}
             />
-          </label>
-          <label className="text-sm font-semibold">
-            Gujarati category
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="title"
+              targetName="gujaratiTitle"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="gallery-gujarati-category"
+              className="text-sm font-semibold"
+            >
+              Gujarati category
+            </label>
             <input
+              id="gallery-gujarati-category"
               name="gujaratiCategory"
               lang="gu"
               required={formLanguage === "gu"}
@@ -351,10 +369,21 @@ export default function AdminGalleryForm({
               defaultValue={initialItem?.gujarati?.category}
               className={inputClass}
             />
-          </label>
-          <label className="text-sm font-semibold">
-            Gujarati location
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="category"
+              targetName="gujaratiCategory"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="gallery-gujarati-location"
+              className="text-sm font-semibold"
+            >
+              Gujarati location
+            </label>
             <input
+              id="gallery-gujarati-location"
               name="gujaratiLocation"
               lang="gu"
               required={formLanguage === "gu"}
@@ -362,10 +391,21 @@ export default function AdminGalleryForm({
               defaultValue={initialItem?.gujarati?.location}
               className={inputClass}
             />
-          </label>
-          <label className="sm:col-span-2 text-sm font-semibold">
-            Gujarati description
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="location"
+              targetName="gujaratiLocation"
+            />
+          </div>
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="gallery-gujarati-description"
+              className="text-sm font-semibold"
+            >
+              Gujarati description
+            </label>
             <textarea
+              id="gallery-gujarati-description"
               name="gujaratiDescription"
               lang="gu"
               required={formLanguage === "gu"}
@@ -374,17 +414,33 @@ export default function AdminGalleryForm({
               defaultValue={initialItem?.gujarati?.description}
               className={textareaClass}
             />
-          </label>
-          <label className="sm:col-span-2 text-sm font-semibold">
-            Gujarati organizer
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="description"
+              targetName="gujaratiDescription"
+            />
+          </div>
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="gallery-gujarati-organizer"
+              className="text-sm font-semibold"
+            >
+              Gujarati organizer
+            </label>
             <input
+              id="gallery-gujarati-organizer"
               name="gujaratiOrganizer"
               lang="gu"
               maxLength={240}
               defaultValue={initialItem?.gujarati?.organizer}
               className={inputClass}
             />
-          </label>
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="organizer"
+              targetName="gujaratiOrganizer"
+            />
+          </div>
         </fieldset>
 
         <fieldset className="grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:col-span-2 sm:grid-cols-2 sm:p-6">

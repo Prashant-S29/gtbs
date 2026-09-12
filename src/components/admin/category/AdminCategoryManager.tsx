@@ -15,6 +15,7 @@ import { toast } from "sonner";
 import AdminBilingualFormSteps, {
   type AdminContentLanguage,
 } from "@/components/admin/AdminBilingualFormSteps";
+import AdminGujaratiSuggestion from "@/components/admin/AdminGujaratiSuggestion";
 import ConfirmDeleteModal from "@/components/admin/ConfirmDeleteModal";
 import { adminJsonRequest } from "@/lib/adminContentClient";
 import type { Category } from "@/types/category";
@@ -182,16 +183,26 @@ export default function AdminCategoryManager({
           </label>
         </div>
         <div className={formLanguage === "gu" ? "block" : "hidden"} lang="gu">
-          <label className="block text-sm font-semibold">
+          <label
+            htmlFor="category-gujarati-name"
+            className="block text-sm font-semibold"
+          >
             Gujarati category name
-            <input
-              name="gujaratiName"
-              required={formLanguage === "gu"}
-              maxLength={120}
-              defaultValue={editing?.gujarati?.name}
-              className={`mt-1.5 ${inputClass}`}
-            />
           </label>
+          <input
+            id="category-gujarati-name"
+            name="gujaratiName"
+            lang="gu"
+            required={formLanguage === "gu"}
+            maxLength={120}
+            defaultValue={editing?.gujarati?.name}
+            className={`mt-1.5 ${inputClass}`}
+          />
+          <AdminGujaratiSuggestion
+            active={formLanguage === "gu"}
+            sourceName="name"
+            targetName="gujaratiName"
+          />
         </div>
         <div className="flex flex-col-reverse gap-2 sm:flex-row">
           {formLanguage === "gu" ? (

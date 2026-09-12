@@ -16,6 +16,7 @@ import { MAX_PRODUCT_DETAIL_IMAGES } from "@/lib/imageRules";
 import AdminBilingualFormSteps, {
   type AdminContentLanguage,
 } from "@/components/admin/AdminBilingualFormSteps";
+import AdminGujaratiSuggestion from "@/components/admin/AdminGujaratiSuggestion";
 import type { Category } from "@/types/category";
 import {
   PRODUCT_BADGES,
@@ -365,6 +366,28 @@ export default function AdminProductForm({
       return;
     }
     if (formLanguage === "en") {
+      if (!gujaratiSpecifications.length && specifications.length) {
+        setGujaratiSpecifications(
+          specifications.map((item) => ({
+            name: "",
+            values: item.values.map(() => ""),
+          })),
+        );
+      }
+      if (!gujaratiVariants.length && variants.length) {
+        setGujaratiVariants(
+          variants.map((item) => ({
+            name: "",
+            options: item.options.map(() => ""),
+          })),
+        );
+      }
+      if (
+        gujaratiFeatures.every((item) => !item.trim()) &&
+        features.some((item) => item.trim())
+      ) {
+        setGujaratiFeatures(features.map(() => ""));
+      }
       setFormLanguage("gu");
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -520,11 +543,17 @@ export default function AdminProductForm({
               className={inputClass}
             />
           </label>
-          <label
-            className={`${formLanguage === "gu" ? "" : "hidden"} text-sm font-semibold sm:col-span-2`}
+          <div
+            className={`${formLanguage === "gu" ? "" : "hidden"} sm:col-span-2`}
           >
-            Gujarati title
+            <label
+              htmlFor="product-gujarati-title"
+              className="text-sm font-semibold"
+            >
+              Gujarati title
+            </label>
             <input
+              id="product-gujarati-title"
               name="gujaratiTitle"
               lang="gu"
               required={formLanguage === "gu"}
@@ -532,7 +561,12 @@ export default function AdminProductForm({
               defaultValue={initialItem?.gujarati?.title}
               className={inputClass}
             />
-          </label>
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="title"
+              targetName="gujaratiTitle"
+            />
+          </div>
           <div className="min-w-0 sm:col-span-2">
             <div className="flex items-center justify-between gap-3">
               <label
@@ -767,9 +801,15 @@ export default function AdminProductForm({
                   className="rounded-xl border border-slate-200 bg-slate-50/60 p-3"
                 >
                   <div className="flex items-end gap-2">
-                    <label className="min-w-0 flex-1 text-xs font-semibold">
-                      Specification name
+                    <div className="min-w-0 flex-1">
+                      <label
+                        htmlFor={`product-specification-${formLanguage}-${index}`}
+                        className="text-xs font-semibold"
+                      >
+                        Specification name
+                      </label>
                       <input
+                        id={`product-specification-${formLanguage}-${index}`}
                         lang={formLanguage}
                         value={specification.name}
                         onChange={(event) =>
@@ -785,7 +825,21 @@ export default function AdminProductForm({
                         placeholder="e.g. Material"
                         className={inputClass}
                       />
-                    </label>
+                      <AdminGujaratiSuggestion
+                        active={formLanguage === "gu"}
+                        autoSuggest={false}
+                        sourceText={specifications[index]?.name}
+                        onApply={(suggestion) =>
+                          setGujaratiSpecifications((current) =>
+                            current.map((item, itemIndex) =>
+                              itemIndex === index
+                                ? { ...item, name: suggestion }
+                                : item,
+                            ),
+                          )
+                        }
+                      />
+                    </div>
                     <button
                       type="button"
                       onClick={() =>
@@ -831,31 +885,60 @@ export default function AdminProductForm({
                           key={`specification-${formLanguage}-${index}-value-${valueIndex}`}
                           className="flex items-center gap-2"
                         >
-                          <input
-                            lang={formLanguage}
-                            value={value}
-                            onChange={(event) =>
-                              updateActiveSpecifications((current) =>
-                                current.map((item, itemIndex) =>
-                                  itemIndex === index
-                                    ? {
-                                        ...item,
-                                        values: item.values.map(
-                                          (currentValue, currentValueIndex) =>
-                                            currentValueIndex === valueIndex
-                                              ? event.target.value
-                                              : currentValue,
-                                        ),
-                                      }
-                                    : item,
-                                ),
-                              )
-                            }
-                            maxLength={500}
-                            placeholder={`Value ${valueIndex + 1}`}
-                            aria-label={`Specification ${index + 1} value ${valueIndex + 1}`}
-                            className={compactInputClass}
-                          />
+                          <div className="min-w-0 flex-1">
+                            <input
+                              lang={formLanguage}
+                              value={value}
+                              onChange={(event) =>
+                                updateActiveSpecifications((current) =>
+                                  current.map((item, itemIndex) =>
+                                    itemIndex === index
+                                      ? {
+                                          ...item,
+                                          values: item.values.map(
+                                            (
+                                              currentValue,
+                                              currentValueIndex,
+                                            ) =>
+                                              currentValueIndex === valueIndex
+                                                ? event.target.value
+                                                : currentValue,
+                                          ),
+                                        }
+                                      : item,
+                                  ),
+                                )
+                              }
+                              maxLength={500}
+                              placeholder={`Value ${valueIndex + 1}`}
+                              aria-label={`Specification ${index + 1} value ${valueIndex + 1}`}
+                              className={compactInputClass}
+                            />
+                            <AdminGujaratiSuggestion
+                              active={formLanguage === "gu"}
+                              autoSuggest={false}
+                              sourceText={
+                                specifications[index]?.values[valueIndex]
+                              }
+                              onApply={(suggestion) =>
+                                setGujaratiSpecifications((current) =>
+                                  current.map((item, itemIndex) =>
+                                    itemIndex === index
+                                      ? {
+                                          ...item,
+                                          values: item.values.map(
+                                            (itemValue, itemValueIndex) =>
+                                              itemValueIndex === valueIndex
+                                                ? suggestion
+                                                : itemValue,
+                                          ),
+                                        }
+                                      : item,
+                                  ),
+                                )
+                              }
+                            />
+                          </div>
                           <button
                             type="button"
                             onClick={() =>
@@ -929,9 +1012,15 @@ export default function AdminProductForm({
                   className="rounded-xl border border-slate-200 bg-slate-50/60 p-3"
                 >
                   <div className="flex items-end gap-2">
-                    <label className="min-w-0 flex-1 text-xs font-semibold">
-                      Variant name
+                    <div className="min-w-0 flex-1">
+                      <label
+                        htmlFor={`product-variant-${formLanguage}-${index}`}
+                        className="text-xs font-semibold"
+                      >
+                        Variant name
+                      </label>
                       <input
+                        id={`product-variant-${formLanguage}-${index}`}
                         lang={formLanguage}
                         value={variant.name}
                         onChange={(event) =>
@@ -947,7 +1036,21 @@ export default function AdminProductForm({
                         placeholder="e.g. Color"
                         className={inputClass}
                       />
-                    </label>
+                      <AdminGujaratiSuggestion
+                        active={formLanguage === "gu"}
+                        autoSuggest={false}
+                        sourceText={variants[index]?.name}
+                        onApply={(suggestion) =>
+                          setGujaratiVariants((current) =>
+                            current.map((item, itemIndex) =>
+                              itemIndex === index
+                                ? { ...item, name: suggestion }
+                                : item,
+                            ),
+                          )
+                        }
+                      />
+                    </div>
                     <button
                       type="button"
                       onClick={() =>
@@ -990,34 +1093,58 @@ export default function AdminProductForm({
                           key={`variant-${formLanguage}-${index}-option-${optionIndex}`}
                           className="flex items-center gap-2"
                         >
-                          <input
-                            lang={formLanguage}
-                            value={option}
-                            onChange={(event) =>
-                              updateActiveVariants((current) =>
-                                current.map((item, itemIndex) =>
-                                  itemIndex === index
-                                    ? {
-                                        ...item,
-                                        options: item.options.map(
-                                          (
-                                            currentOption,
-                                            currentOptionIndex,
-                                          ) =>
-                                            currentOptionIndex === optionIndex
-                                              ? event.target.value
-                                              : currentOption,
-                                        ),
-                                      }
-                                    : item,
-                                ),
-                              )
-                            }
-                            maxLength={160}
-                            placeholder={`Option ${optionIndex + 1}`}
-                            aria-label={`Variant ${index + 1} option ${optionIndex + 1}`}
-                            className={compactInputClass}
-                          />
+                          <div className="min-w-0 flex-1">
+                            <input
+                              lang={formLanguage}
+                              value={option}
+                              onChange={(event) =>
+                                updateActiveVariants((current) =>
+                                  current.map((item, itemIndex) =>
+                                    itemIndex === index
+                                      ? {
+                                          ...item,
+                                          options: item.options.map(
+                                            (
+                                              currentOption,
+                                              currentOptionIndex,
+                                            ) =>
+                                              currentOptionIndex === optionIndex
+                                                ? event.target.value
+                                                : currentOption,
+                                          ),
+                                        }
+                                      : item,
+                                  ),
+                                )
+                              }
+                              maxLength={160}
+                              placeholder={`Option ${optionIndex + 1}`}
+                              aria-label={`Variant ${index + 1} option ${optionIndex + 1}`}
+                              className={compactInputClass}
+                            />
+                            <AdminGujaratiSuggestion
+                              active={formLanguage === "gu"}
+                              autoSuggest={false}
+                              sourceText={variants[index]?.options[optionIndex]}
+                              onApply={(suggestion) =>
+                                setGujaratiVariants((current) =>
+                                  current.map((item, itemIndex) =>
+                                    itemIndex === index
+                                      ? {
+                                          ...item,
+                                          options: item.options.map(
+                                            (itemOption, itemOptionIndex) =>
+                                              itemOptionIndex === optionIndex
+                                                ? suggestion
+                                                : itemOption,
+                                          ),
+                                        }
+                                      : item,
+                                  ),
+                                )
+                              }
+                            />
+                          </div>
                           <button
                             type="button"
                             onClick={() =>
@@ -1090,26 +1217,48 @@ export default function AdminProductForm({
             className={formLanguage === "gu" ? "grid gap-4" : "hidden"}
             lang="gu"
           >
-            <label className="text-sm font-semibold">
-              Gujarati short description
+            <div>
+              <label
+                htmlFor="product-gujarati-description"
+                className="text-sm font-semibold"
+              >
+                Gujarati short description
+              </label>
               <textarea
+                id="product-gujarati-description"
                 name="gujaratiDescription"
                 maxLength={10000}
                 rows={4}
                 defaultValue={initialItem?.gujarati?.description}
                 className={textareaClass}
               />
-            </label>
-            <label className="text-sm font-semibold">
-              Gujarati detailed overview
+              <AdminGujaratiSuggestion
+                active={formLanguage === "gu"}
+                sourceName="description"
+                targetName="gujaratiDescription"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="product-gujarati-synopsis"
+                className="text-sm font-semibold"
+              >
+                Gujarati detailed overview
+              </label>
               <textarea
+                id="product-gujarati-synopsis"
                 name="gujaratiSynopsis"
                 maxLength={20000}
                 rows={5}
                 defaultValue={initialItem?.gujarati?.synopsis}
                 className={textareaClass}
               />
-            </label>
+              <AdminGujaratiSuggestion
+                active={formLanguage === "gu"}
+                sourceName="synopsis"
+                targetName="gujaratiSynopsis"
+              />
+            </div>
           </div>
 
           <div className="space-y-2">
@@ -1123,21 +1272,35 @@ export default function AdminProductForm({
                     key={`feature-${formLanguage}-${index}`}
                     className="flex items-center gap-1.5"
                   >
-                    <input
-                      lang={formLanguage}
-                      value={feature}
-                      onChange={(event) =>
-                        updateActiveFeatures((current) =>
-                          current.map((item, itemIndex) =>
-                            itemIndex === index ? event.target.value : item,
-                          ),
-                        )
-                      }
-                      maxLength={500}
-                      placeholder={`Feature ${index + 1}`}
-                      aria-label={`${formLanguage === "gu" ? "Gujarati " : ""}feature ${index + 1}`}
-                      className={compactInputClass}
-                    />
+                    <div className="min-w-0 flex-1">
+                      <input
+                        lang={formLanguage}
+                        value={feature}
+                        onChange={(event) =>
+                          updateActiveFeatures((current) =>
+                            current.map((item, itemIndex) =>
+                              itemIndex === index ? event.target.value : item,
+                            ),
+                          )
+                        }
+                        maxLength={500}
+                        placeholder={`Feature ${index + 1}`}
+                        aria-label={`${formLanguage === "gu" ? "Gujarati " : ""}feature ${index + 1}`}
+                        className={compactInputClass}
+                      />
+                      <AdminGujaratiSuggestion
+                        active={formLanguage === "gu"}
+                        autoSuggest={false}
+                        sourceText={features[index]}
+                        onApply={(suggestion) =>
+                          setGujaratiFeatures((current) =>
+                            current.map((item, itemIndex) =>
+                              itemIndex === index ? suggestion : item,
+                            ),
+                          )
+                        }
+                      />
+                    </div>
                     <button
                       type="button"
                       disabled={activeFeatures.length >= MAX_PRODUCT_FEATURES}
@@ -1287,12 +1450,20 @@ export default function AdminProductForm({
                   className={inputClass}
                 />
               </label>
-              <label
-                className={`text-sm font-semibold ${categoryCreatorLanguage === "gu" ? "block" : "hidden"}`}
+              <div
+                className={
+                  categoryCreatorLanguage === "gu" ? "block" : "hidden"
+                }
                 lang="gu"
               >
-                Gujarati category name
+                <label
+                  htmlFor="new-category-gujarati-name"
+                  className="text-sm font-semibold"
+                >
+                  Gujarati category name
+                </label>
                 <input
+                  id="new-category-gujarati-name"
                   value={newCategoryGujaratiName}
                   onChange={(event) =>
                     setNewCategoryGujaratiName(event.target.value)
@@ -1300,7 +1471,13 @@ export default function AdminProductForm({
                   maxLength={120}
                   className={inputClass}
                 />
-              </label>
+                <AdminGujaratiSuggestion
+                  active={categoryCreatorLanguage === "gu"}
+                  sourceText={newCategoryName}
+                  targetText={newCategoryGujaratiName}
+                  onApply={setNewCategoryGujaratiName}
+                />
+              </div>
               {categoryError && (
                 <p
                   role="alert"

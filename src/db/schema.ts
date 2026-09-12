@@ -117,6 +117,18 @@ export const emailRateLimits = pgTable("email_rate_limits", {
     .defaultNow(),
 });
 
+export const translationRateLimits = pgTable("translation_rate_limits", {
+  key: text("key").primaryKey(),
+  requestCount: integer("request_count").notNull(),
+  characterCount: integer("character_count").notNull(),
+  windowStartedAt: timestamp("window_started_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+});
+
 const recordTimestamps = {
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()

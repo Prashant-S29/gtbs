@@ -389,7 +389,7 @@ test("Admin Product specifications use grouped individual value inputs", () => {
     "utf8",
   );
 
-  assert.match(source, />\s*Specification name\s*<input/);
+  assert.match(source, />\s*Specification name\s*<\/label>\s*<input/);
   assert.match(source, />\s*Values\s*</);
   assert.match(source, />\s*Add value\s*</);
   assert.match(source, /aria-label=\{`Remove value /);
@@ -587,6 +587,31 @@ test("Vercel previews are excluded from search indexing at every layer", () => {
   assert.match(rootLayout, /VERCEL_ENV === "preview"/u);
   assert.match(rootLayout, /index: !isPreviewDeployment/u);
   assert.match(robotsRoute, /disallow: "\/"/u);
+});
+
+test("all bilingual Admin modules expose editable Gujarati suggestions", () => {
+  const helper = readFileSync(
+    path.join(root, "src/components/admin/AdminGujaratiSuggestion.tsx"),
+    "utf8",
+  );
+  assert.match(helper, /Translate English/u);
+  assert.match(helper, /Type phonetically/u);
+  assert.match(helper, /Use suggestion/u);
+
+  for (const relativePath of [
+    "src/components/admin/category/AdminCategoryManager.tsx",
+    "src/components/admin/product/AdminProductForm.tsx",
+    "src/components/admin/blog/AdminBlogForm.tsx",
+    "src/components/admin/gallery/AdminGalleryForm.tsx",
+    "src/components/admin/testimonial/AdminTestimonialForm.tsx",
+    "src/components/admin/team/AdminTeamMemberForm.tsx",
+  ]) {
+    assert.match(
+      readFileSync(path.join(root, relativePath), "utf8"),
+      /AdminGujaratiSuggestion/u,
+      relativePath,
+    );
+  }
 });
 
 test("Admin auth and recovery use Better Auth with server-owned Resend", () => {

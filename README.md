@@ -27,6 +27,8 @@ Admin email/password authentication, sessions, password-reset tokens, and auth r
 
 Contact and Admin password-reset mail is sent server-side through Resend from `GTBS Support <support@gtbsbooks.com>`. Configure only the send-scoped `RESEND_API_KEY`; no browser email key is used.
 
+Admin bilingual forms include editable Gujarati suggestions. English text uses Azure semantic translation, while Roman-Gujarati text uses a separate phonetic transliteration mode. Configure the server-only `AZURE_TRANSLATOR_KEY`; for the recommended Global Translator resource, leave `AZURE_TRANSLATOR_REGION` unset. Missing credentials disable suggestions with a controlled message but never block manual Gujarati authoring or saving.
+
 ## Vercel deployment
 
 `main` is the production branch for `https://gtbsbooks.com`; `staging` is the preview branch for `https://staging.gtbsbooks.com`. `vercel.json` disables Git-triggered deployment for every other branch. Configure the production and preview environment scopes separately so each scope's `BETTER_AUTH_URL` and `NEXT_PUBLIC_SITE_URL` match its custom domain.

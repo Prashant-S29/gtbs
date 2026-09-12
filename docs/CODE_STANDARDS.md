@@ -31,6 +31,7 @@
 - Cached public repository routes must declare a deliberate revalidation window, and every successful admin content mutation must invalidate the affected storefront cache.
 - Prefer semantic HTML over generic containers.
 - Keep rich-text documents as typed/validated JSON. Render allow-listed nodes and marks as React elements; do not pass editor HTML directly to `dangerouslySetInnerHTML`.
+- Keep third-party translation in a server-only typed service. Client components call a protected same-origin Admin route, treat provider output as an editable suggestion, and never read provider credentials.
 
 ## Components
 
@@ -41,6 +42,7 @@
 - Put route chrome that must survive navigation in the nearest shared Next.js layout. Admin pages must not recreate the sidebar/header; they compose page headings/content through `AdminContentShell`, while `AdminPanelShell` owns pathname-based navigation state.
 - Flexible Product specifications and variants use typed arrays of bounded objects, not unvalidated arbitrary records. Specifications may use a local `{ name, values[] }` draft solely to provide the grouped editor, but must flatten to the canonical `{ name, value }` domain type before submission. Render specification values, variant options, and Product features as individual controlled inputs with accessible add/delete controls; do not parse them from a multiline textarea. Client forms identify partial groups, trim/drop wholly blank entries, and collapse duplicate variant option/feature text before sending; strict server schemas remain authoritative.
 - Category mutations use the shared bilingual step contract: keep both names mounted/preserved, validate English before advancing, submit only from Gujarati, and keep the stored localized block optional solely for legacy compatibility.
+- Reuse `AdminGujaratiSuggestion` directly below bilingual fields. Automatic English suggestions may run when a nonblank untranslated Gujarati field first appears; phonetic generation remains explicit. Cache identical suggestions only as a bounded client usability optimization, never as persistence or authorization state.
 - In narrow Admin form cards, stack paired actions on mobile and assign secondary actions a compact fixed desktop width; keep primary submit labels/icons non-shrinking and non-wrapping.
 - Product and Gallery multi-image forms store pending `File` objects separately from persisted image records, revoke every object URL on removal/unmount, and never treat a local preview as proof of provider upload.
 - Extract repeated/stateful dashboard behavior before adding more admin modules.

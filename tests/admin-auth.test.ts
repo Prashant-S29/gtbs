@@ -76,6 +76,31 @@ test("public contact email is server-side, validated, and database throttled", (
   assert.doesNotMatch(`${form}\n${route}`, /EMAILJS|emailjs/u);
 });
 
+test("Gujarati suggestions use a protected server-owned Azure integration", () => {
+  const provider = read("src/lib/azureTranslator.ts");
+  const route = read("src/app/api/admin/translate/gujarati/route.ts");
+  const limit = read("src/lib/adminTranslationRateLimit.ts");
+  const migration = read(
+    "database/migrations/004_admin_translation_limits.sql",
+  );
+  const helper = read("src/components/admin/AdminGujaratiSuggestion.tsx");
+
+  assert.match(provider, /AZURE_TRANSLATOR_KEY/u);
+  assert.match(provider, /\/translate\?api-version=3\.0&from=en&to=gu/u);
+  assert.match(provider, /language=gu&fromScript=Latn&toScript=Gujr/u);
+  assert.match(route, /verifyAdminApiRequest/u);
+  assert.match(route, /readBoundedJson/u);
+  assert.match(route, /MAX_TOTAL_CHARACTERS/u);
+  assert.match(route, /consumeAdminTranslationLimit/u);
+  assert.match(route, /Retry-After/u);
+  assert.match(limit, /INSERT INTO translation_rate_limits/u);
+  assert.match(migration, /ENABLE ROW LEVEL SECURITY/u);
+  assert.match(helper, /\/api\/admin\/translate\/gujarati/u);
+  assert.match(helper, /Gujarati suggestion — please review/u);
+  assert.match(helper, /if \(existingTarget\) return/u);
+  assert.doesNotMatch(helper, /AZURE_TRANSLATOR_KEY|Ocp-Apim/u);
+});
+
 test("runtime source has no filesystem persistence or legacy auth modules", () => {
   const stalePaths = [
     "src/lib/adminCredentialStore.ts",
