@@ -26,7 +26,7 @@ export const siteConfig = {
     postalCode: "380006",
     addressCountry: "IN",
   },
-  socialImage: "/images/banners/Home_banner.webp",
+  socialImage: "/images/banners/OG_banner.webp",
   keywords: [
     "Christian books",
     "Holy Bible",
