@@ -48,7 +48,7 @@ const inputClass =
 const textareaClass =
   "admin-product-input mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-slate-300 focus:ring-1 focus:ring-slate-200";
 const compactInputClass =
-  "admin-product-input h-10 min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-sm outline-none focus:border-slate-300 focus:ring-1 focus:ring-slate-200";
+  "admin-product-input h-10 min-w-0 w-full flex-1 rounded-xl border border-slate-200 bg-white px-3 text-sm outline-none focus:border-slate-300 focus:ring-1 focus:ring-slate-200";
 const MAX_PRODUCT_SPECIFICATIONS = 50;
 const MAX_PRODUCT_VARIANTS = 20;
 const MAX_VARIANT_OPTIONS = 50;
@@ -879,11 +879,11 @@ export default function AdminProductForm({
                         Add value
                       </button>
                     </div>
-                    <div className="grid gap-2 sm:grid-cols-2">
+                    <div className="grid w-full gap-2">
                       {specification.values.map((value, valueIndex) => (
                         <div
                           key={`specification-${formLanguage}-${index}-value-${valueIndex}`}
-                          className="flex items-center gap-2"
+                          className="flex w-full items-center gap-2"
                         >
                           <div className="min-w-0 flex-1">
                             <input
@@ -1087,11 +1087,11 @@ export default function AdminProductForm({
                         Add option
                       </button>
                     </div>
-                    <div className="grid gap-2 sm:grid-cols-2">
+                    <div className="grid w-full gap-2">
                       {variant.options.map((option, optionIndex) => (
                         <div
                           key={`variant-${formLanguage}-${index}-option-${optionIndex}`}
-                          className="flex items-center gap-2"
+                          className="flex w-full items-center gap-2"
                         >
                           <div className="min-w-0 flex-1">
                             <input
@@ -1261,16 +1261,29 @@ export default function AdminProductForm({
             </div>
           </div>
 
-          <div className="space-y-2">
-            <p className="text-sm font-semibold">
-              {formLanguage === "gu" ? "Gujarati features" : "Features"}
-            </p>
+          <div className="space-y-3">
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <p className="text-sm font-semibold">
+                {formLanguage === "gu" ? "Gujarati features" : "Features"}
+              </p>
+              <button
+                type="button"
+                disabled={activeFeatures.length >= MAX_PRODUCT_FEATURES}
+                onClick={() =>
+                  updateActiveFeatures((current) => [...current, ""])
+                }
+                className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-orange-200 px-3 text-xs font-semibold text-orange-600 hover:bg-orange-50 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <Plus size={15} />
+                Add feature
+              </button>
+            </div>
             {activeFeatures.length ? (
-              <div className="grid gap-2 sm:grid-cols-2">
+              <div className="grid w-full gap-2">
                 {activeFeatures.map((feature, index) => (
                   <div
                     key={`feature-${formLanguage}-${index}`}
-                    className="flex items-center gap-1.5"
+                    className="flex w-full items-center gap-2"
                   >
                     <div className="min-w-0 flex-1">
                       <input
@@ -1303,22 +1316,6 @@ export default function AdminProductForm({
                     </div>
                     <button
                       type="button"
-                      disabled={activeFeatures.length >= MAX_PRODUCT_FEATURES}
-                      onClick={() =>
-                        updateActiveFeatures((current) => [
-                          ...current.slice(0, index + 1),
-                          "",
-                          ...current.slice(index + 1),
-                        ])
-                      }
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-orange-200 text-orange-600 hover:bg-orange-50 disabled:cursor-not-allowed disabled:opacity-50"
-                      aria-label={`Add another feature after ${index + 1}`}
-                      title="Add feature"
-                    >
-                      <Plus size={16} />
-                    </button>
-                    <button
-                      type="button"
                       onClick={() =>
                         updateActiveFeatures((current) =>
                           current.filter((_, itemIndex) => itemIndex !== index),
@@ -1334,14 +1331,9 @@ export default function AdminProductForm({
                 ))}
               </div>
             ) : (
-              <button
-                type="button"
-                onClick={() => updateActiveFeatures(() => [""])}
-                className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-orange-200 px-3 text-xs font-semibold text-orange-600 hover:bg-orange-50"
-              >
-                <Plus size={15} />
-                Add feature
-              </button>
+              <p className="rounded-xl border border-dashed border-slate-300 px-4 py-6 text-center text-sm text-slate-500">
+                No features added for {formLanguage === "gu" ? "Gujarati" : "English"}.
+              </p>
             )}
           </div>
         </fieldset>
