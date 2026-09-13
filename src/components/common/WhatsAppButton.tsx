@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function WhatsAppButton() {
   const { t } = useLanguage();
-  const phoneNumber = "917490028867";
+  const phoneNumber = "919265429338";
   const defaultMessage = encodeURIComponent(t("whatsapp.defaultMessage"));
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 

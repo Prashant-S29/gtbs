@@ -1,4 +1,4 @@
-const GTBS_WHATSAPP_NUMBER = "917490028867";
+const GTBS_WHATSAPP_NUMBER = "919265429338";
 
 export interface WhatsAppOrderItem {
   title: string;

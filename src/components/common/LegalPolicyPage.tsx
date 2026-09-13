@@ -111,18 +111,18 @@ export default function LegalPolicyPage({ policy }: { policy: PolicyName }) {
                     </p>
                     <div className="mt-3 flex flex-col gap-3">
                       <Link
-                        href="mailto:support@gtbsbooks.com"
+                        href="mailto:gtbs-1852@yahoo.in"
                         className="flex items-center gap-2 text-gray-700 transition-colors hover:text-orange-600"
                       >
                         <Mail size={17} className="text-orange-600" />
-                        support@gtbsbooks.com
+                        gtbs-1852@yahoo.in
                       </Link>
                       <Link
-                        href="tel:+919265429330"
+                        href="tel:+919265429338"
                         className="flex items-center gap-2 text-gray-700 transition-colors hover:text-orange-600"
                       >
                         <Phone size={17} className="text-orange-600" />
-                        +91 92654 29330
+                        +91 9265429338
                       </Link>
                       {policy !== "terms" && (
                         <p className="flex items-center gap-2 text-gray-700">
