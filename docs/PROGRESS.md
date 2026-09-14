@@ -27,6 +27,12 @@
 
 ## Change log
 
+### 2026-09-14 - Production release configuration and Contact delivery alignment
+
+- **Outcome:** Prepared the tested staging release for Production. Added the Azure Translator key/region to the Vercel Production scope and retained branch-scoped Preview values. Preserved the newly approved public Yahoo contact address as the Contact recipient while restoring Resend's verified `support@gtbsbooks.com` sender and established `CONTACT_RECIPIENT_EMAIL` configuration contract.
+- **Areas:** Vercel Production/Preview environment configuration, `src/lib/email.ts`, `README.md`, and environment documentation.
+- **Validation:** No translation/provider request was made because the client and team had already completed acceptance testing and requested that the F0 character quota not be consumed. Release verification is limited to environment-scope inspection, pull-request controls, and Vercel deployment readiness.
+
 ### 2026-09-13 - Full-width product attribute inputs
 
 - **Outcome:** Updated the Product Admin form so specification values, variant options, and feature rows stretch to the full available width instead of using a two-column layout.
