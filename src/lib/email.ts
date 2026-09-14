@@ -3,8 +3,8 @@ import "server-only";
 import { createHash } from "node:crypto";
 import { Resend } from "resend";
 
-const FROM_EMAIL = "GTBS Support <support@gtbsbooks.com>";
-const DEFAULT_SUPPORT_EMAIL = "support@gtbsbooks.com";
+const FROM_EMAIL = "GTBS Support <gtbs-1852@yahoo.in>";
+const DEFAULT_SUPPORT_EMAIL = "gtbs-1852@yahoo.in";
 
 let resendClient: Resend | undefined;
 
@@ -15,8 +15,7 @@ function getResend() {
 }
 
 function supportRecipient() {
-  const value =
-    process.env.CONTACT_RECIPIENT_EMAIL?.trim() || DEFAULT_SUPPORT_EMAIL;
+  const value = process.env.CONTACT_EMAIL?.trim() || DEFAULT_SUPPORT_EMAIL;
   if (!/^\S+@\S+\.\S+$/u.test(value)) {
     throw new Error("The support email recipient is invalid.");
   }

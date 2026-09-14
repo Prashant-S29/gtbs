@@ -27,6 +27,12 @@
 
 ## Change log
 
+### 2026-09-13 - Full-width product attribute inputs
+
+- **Outcome:** Updated the Product Admin form so specification values, variant options, and feature rows stretch to the full available width instead of using a two-column layout.
+- **Areas:** `src/components/admin/product/AdminProductForm.tsx`.
+- **Validation:** `pnpm exec eslint src/components/admin/product/AdminProductForm.tsx`.
+
 ### 2026-09-09 - Editable Azure Gujarati suggestions implemented before credentials
 
 - **Outcome:** Added optional Admin assistance for semantic English-to-Gujarati translation and explicit Roman-Gujarati phonetic transliteration. Generated text is always reviewable/editable and changes a real Gujarati field only after “Use suggestion”; existing Gujarati text is never overwritten automatically.

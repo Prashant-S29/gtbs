@@ -104,24 +104,15 @@ function Footer() {
                   >
                     +91 9265429338
                   </Link>
-
-                  <span className="h-5 w-px bg-white/30" />
-
-                  <Link
-                    href="tel:+917490028867"
-                    className="transition-colors hover:text-amber-400"
-                  >
-                    +91 7490028867
-                  </Link>
                 </div>
               </li>
               <li>
                 <Link
-                  href="mailto:support@gtbsbooks.com"
+                  href="mailto:gtbs-1852@yahoo.in"
                   className="flex items-center gap-3 transition-colors hover:text-amber-400"
                 >
                   <Mail size={16} className="shrink-0 text-amber-400/80" />
-                  support@gtbsbooks.com
+                  gtbs-1852@yahoo.in
                 </Link>
               </li>
               <li>

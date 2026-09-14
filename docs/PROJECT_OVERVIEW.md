@@ -86,7 +86,7 @@ npm run build
 | `BETTER_AUTH_SECRET`       | Stable Better Auth signing/encryption secret, minimum 32 characters            | Server secret |
 | `GOOGLE_SITE_VERIFICATION` | Search Console verification                                                    | Server config |
 | `RESEND_API_KEY`           | Send-scoped Resend key for Contact and Admin password recovery                 | Server secret |
-| `CONTACT_RECIPIENT_EMAIL`  | Optional Contact destination; defaults to `support@gtbsbooks.com`              | Server config |
+| `CONTACT_EMAIL`            | Optional Contact destination; defaults to `gtbs-1852@yahoo.in`               | Server config |
 | `DATABASE_URL`             | PostgreSQL runtime/setup connection; use Supabase transaction pooler on Vercel | Server secret |
 | `DATABASE_POOL_MAX`        | Per-instance PostgreSQL pool cap; production default/recommendation is `2`     | Server config |
 | `API_SMOKE_BASE_URL`       | Optional target origin for the live API smoke suite                            | Server config |

@@ -15,9 +15,9 @@ export const siteConfig = {
     "Shop Christian books, Holy Bibles, devotionals, study guides, children's books, magazines, and faith-inspired gifts from Gujarat Tract Book Store.",
   url: siteUrl,
   locale: "en_IN",
-  email: "support@gtbsbooks.com",
+  email: "gtbs-1852@yahoo.in",
   phone: "+91 92654 29338",
-  whatsapp: "+91 74900 28867",
+  whatsapp: "+91 92654 29338",
   address: {
     streetAddress:
       "Sahitya Seva Sadan, Shahid Veer Kinariwala Marg, I P Mission Compound, Ellisbridge",
@@ -26,7 +26,7 @@ export const siteConfig = {
     postalCode: "380006",
     addressCountry: "IN",
   },
-  socialImage: "/images/banners/Home_banner.webp",
+  socialImage: "/images/banners/OG_banner.webp",
   keywords: [
     "Christian books",
     "Holy Bible",
