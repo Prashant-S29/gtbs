@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import AdminBilingualFormSteps, {
   type AdminContentLanguage,
 } from "@/components/admin/AdminBilingualFormSteps";
+import AdminGujaratiSuggestion from "@/components/admin/AdminGujaratiSuggestion";
 import { adminJsonRequest } from "@/lib/adminContentClient";
 import type { Testimonial } from "@/types/testimonial";
 
@@ -208,29 +209,57 @@ export default function AdminTestimonialForm({
             This saved content is shown when the storefront language is
             Gujarati.
           </p>
-          <label className="text-sm font-semibold">
-            Gujarati customer name
+          <div>
+            <label
+              htmlFor="testimonial-gujarati-name"
+              className="text-sm font-semibold"
+            >
+              Gujarati customer name
+            </label>
             <input
+              id="testimonial-gujarati-name"
               name="gujaratiName"
               required={formLanguage === "gu"}
               maxLength={120}
               defaultValue={initialItem?.gujarati?.name}
               className={inputClass}
             />
-          </label>
-          <label className="text-sm font-semibold">
-            Gujarati customer role
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="name"
+              targetName="gujaratiName"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="testimonial-gujarati-role"
+              className="text-sm font-semibold"
+            >
+              Gujarati customer role
+            </label>
             <input
+              id="testimonial-gujarati-role"
               name="gujaratiRole"
               required={formLanguage === "gu"}
               maxLength={160}
               defaultValue={initialItem?.gujarati?.role}
               className={inputClass}
             />
-          </label>
-          <label className="text-sm font-semibold sm:col-span-2">
-            Gujarati testimonial
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="role"
+              targetName="gujaratiRole"
+            />
+          </div>
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="testimonial-gujarati-review"
+              className="text-sm font-semibold"
+            >
+              Gujarati testimonial
+            </label>
             <textarea
+              id="testimonial-gujarati-review"
               name="gujaratiReview"
               required={formLanguage === "gu"}
               maxLength={2000}
@@ -238,7 +267,12 @@ export default function AdminTestimonialForm({
               defaultValue={initialItem?.gujarati?.review}
               className={textareaClass}
             />
-          </label>
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="review"
+              targetName="gujaratiReview"
+            />
+          </div>
         </fieldset>
 
         <div className="flex flex-col-reverse gap-2 sm:col-span-2 sm:flex-row sm:justify-end">

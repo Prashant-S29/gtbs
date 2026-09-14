@@ -8,6 +8,16 @@
 4. Identify code, cache, dependency, or OS-permission origin.
 5. Apply the smallest fix, rerun the check, and update this file plus `PROGRESS.md`.
 
+## Gujarati suggestions report that translation is not configured
+
+**Symptom:** a Gujarati field displays `Gujarati suggestions are unavailable until Azure Translator is configured`, while manual Gujarati entry still works.
+
+**Cause:** `AZURE_TRANSLATOR_KEY` is absent from the current server environment, or the application was not restarted/redeployed after it was added.
+
+**Solution:** create an Azure Translator resource, add its key as the server-only `AZURE_TRANSLATOR_KEY`, and restart local development or redeploy the affected Vercel environment. For a Global resource, leave `AZURE_TRANSLATOR_REGION` unset; for a regional resource, set it to that resource's Azure region. Never place either value in a `NEXT_PUBLIC_` variable.
+
+**Prevention:** configure Production and staging-scoped Preview separately, then test both Translate English and Type Gujarati phonetically modes after deployment. Provider timeout/quota/status failures are intentionally shown as controlled retryable messages rather than silently replacing Gujarati content.
+
 ## Admin Overview shows sample sales and order figures
 
 **Symptom:** Overview displays revenue, orders, inventory, customers, or sales history that does not change when Product, Category, Blog, Gallery, Testimonial, or Team content changes.

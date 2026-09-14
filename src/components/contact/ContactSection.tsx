@@ -34,7 +34,7 @@ const ContactSection = () => {
             <div className="mt-9 grid gap-x-5 gap-y-8 sm:grid-cols-2">
               {/* Email */}
               <a
-                href="mailto:support@gtbsbooks.com"
+                href="mailto:gtbs-1852@yahoo.in"
                 className="group flex items-center gap-4"
               >
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-orange-600 text-white transition-transform duration-300 group-hover:scale-105">
@@ -47,7 +47,7 @@ const ContactSection = () => {
                   </h3>
 
                   <p className="mt-1 description text-sm text-gray-600 transition-colors group-hover:text-orange-600">
-                    support@gtbsbooks.com
+                    gtbs-1852@yahoo.in
                   </p>
                 </div>
               </a>
@@ -71,15 +71,6 @@ const ContactSection = () => {
                       dir="ltr"
                     >
                       +91 9265429338
-                    </a>
-                    <span className="shrink-0 text-gray-400">|</span>
-                    <a
-                      href="tel:+917490028867"
-                      className="notranslate whitespace-nowrap text-sm tabular-nums text-gray-600 transition-colors description hover:text-orange-600"
-                      translate="no"
-                      dir="ltr"
-                    >
-                      +91 7490028867
                     </a>
                   </div>
                 </div>

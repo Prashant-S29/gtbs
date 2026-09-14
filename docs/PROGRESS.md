@@ -6,25 +6,46 @@
 | ------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | Public storefront  | Functional database baseline      | Catalog/editorial reads use Drizzle PostgreSQL and public cache revalidation                                       |
 | Product catalog    | Dynamic database baseline         | PostgreSQL Admin CRUD, category relation, storefront feeds, and product detail UI                                  |
-| Database schema    | Serverless-ready baseline         | Content, Better Auth, reset, session, and email-limit state in PostgreSQL; no runtime filesystem persistence       |
+| Database schema    | Serverless-ready baseline         | Content, Better Auth, session/reset, email limits, and translation limits in PostgreSQL; no filesystem persistence |
 | Cart               | Browser-local implemented         | Multi-Product list, live count, quantity/remove controls, cross-tab updates, and WhatsApp handoff                  |
 | Product sales      | WhatsApp-assisted                 | Card/detail Buy Now and Cart send itemized requests; GTBS confirms availability, delivery, total, and payment      |
 | Customer utilities | Intentionally out of scope        | No Wishlist, Checkout, customer account, profile, or order-history pages                                           |
 | Admin auth         | Vercel-ready PostgreSQL baseline  | Better Auth email/password, database sessions/rate limits/reset tokens, Resend links, and reset session revocation |
-| Admin dashboard    | Repository-driven overview        | Live Product, Category, Blog, Gallery, Testimonial, and Team totals, catalog distribution, and content snapshots   |
+| Admin dashboard    | Repository-driven + suggestions   | Live content overview plus editable Azure Gujarati translation/transliteration assistance across six CRUD modules  |
 | SEO                | Deployed production/preview split | Production indexing; protected Preview plus layered noindex/header/disallow-all crawler controls                   |
 | Deployment         | Live; DNS caches propagating      | Git-connected Vercel Production/Preview deployments, branch domains, Vercel DNS, and scoped environment values     |
 | Documentation      | Active                            | Must evolve with every change                                                                                      |
-| Automated quality  | Healthy baseline                  | 57 focused tests plus 59 live auth/email/API/CRUD checks, lint, types, production/preview builds, and audit pass   |
+| Automated quality  | Healthy baseline                  | 59 focused tests plus 59 prior live auth/email/API/CRUD checks, lint, types, production/preview builds, and audit  |
 
 ## Current priorities
 
-1. Allow recursive DNS caches to expire, re-run Resend verification, and complete any Google Workspace Admin domain-verification/Gmail-activation step for `support@gtbsbooks.com`.
-2. Perform an authenticated browser smoke test on both custom origins and confirm the Secure Better Auth cookie plus delivered reset link.
-3. Operationally verify WhatsApp order handling, current Product availability, delivery pricing, and payment-confirmation procedures.
-4. Run deployed-origin Core Web Vitals monitoring and authenticated/provider browser journeys in the target environment.
+1. Add the working Azure Translator key and `centralindia` region separately to Production and staging-scoped Preview, then exercise both modes from authenticated Admin forms.
+2. Allow recursive DNS caches to expire, re-run Resend verification, and complete any Google Workspace Admin domain-verification/Gmail-activation step for `support@gtbsbooks.com`.
+3. Perform an authenticated browser smoke test on both custom origins and confirm the Secure Better Auth cookie plus delivered reset link.
+4. Operationally verify WhatsApp order handling, current Product availability, delivery pricing, and payment-confirmation procedures.
+5. Run deployed-origin Core Web Vitals monitoring and authenticated/provider browser journeys in the target environment.
 
 ## Change log
+
+### 2026-09-14 - Production release configuration and Contact delivery alignment
+
+- **Outcome:** Prepared the tested staging release for Production. Added the Azure Translator key/region to the Vercel Production scope and retained branch-scoped Preview values. Preserved the newly approved public Yahoo contact address as the Contact recipient while restoring Resend's verified `support@gtbsbooks.com` sender and established `CONTACT_RECIPIENT_EMAIL` configuration contract.
+- **Areas:** Vercel Production/Preview environment configuration, `src/lib/email.ts`, `README.md`, and environment documentation.
+- **Validation:** No translation/provider request was made because the client and team had already completed acceptance testing and requested that the F0 character quota not be consumed. Release verification is limited to environment-scope inspection, pull-request controls, and Vercel deployment readiness.
+
+### 2026-09-13 - Full-width product attribute inputs
+
+- **Outcome:** Updated the Product Admin form so specification values, variant options, and feature rows stretch to the full available width instead of using a two-column layout.
+- **Areas:** `src/components/admin/product/AdminProductForm.tsx`.
+- **Validation:** `pnpm exec eslint src/components/admin/product/AdminProductForm.tsx`.
+
+### 2026-09-09 - Editable Azure Gujarati suggestions implemented before credentials
+
+- **Outcome:** Added optional Admin assistance for semantic English-to-Gujarati translation and explicit Roman-Gujarati phonetic transliteration. Generated text is always reviewable/editable and changes a real Gujarati field only after “Use suggestion”; existing Gujarati text is never overwritten automatically.
+- **Areas:** Added the server-only Azure REST client in `src/lib/azureTranslator.ts`, protected/bounded/no-store `POST /api/admin/translate/gujarati`, PostgreSQL-backed request/character limiting through migration `004_admin_translation_limits.sql`, and reusable `AdminGujaratiSuggestion`. Integrated plain fields across Category, Product, Blog, Gallery, Testimonial, and Team forms, including controlled Product specifications/variants/features. Blog Article suggestions translate extracted plain paragraphs into editable Tiptap paragraph nodes and explicitly require formatting review. Added environment placeholders, protected-route smoke discovery, static regression coverage, and documentation.
+- **Cost/reliability controls:** Batches are capped at 25 texts/20,000 characters, an atomic database window permits 120 requests/100,000 characters per Admin per five minutes, Azure calls abort after 10 seconds, and identical completed suggestions use a bounded client-runtime cache. Missing credentials return HTTP 503 without affecting manual Gujarati entry or ordinary content CRUD.
+- **Validation:** `pnpm db:migrate` applied migration `004` after confirming migrations `001`–`003` were current, and an immediate rerun reported the database up to date; `pnpm format:check` passed; `pnpm exec eslint .` passed; `pnpm exec tsc --noEmit` passed; `pnpm test:admin-auth` passed 7/7; `pnpm test:content` passed 23/23; `pnpm test:site` passed 29/29; `pnpm build` passed all 33 static generations and emitted the new dynamic API route; `git diff --check` passed. After local Azure configuration, live provider calls returned Gujarati script for both semantic `How are you?` translation (`કેમ છો?`) and Roman-Gujarati `kem cho` transliteration (`કેમ છો`). A production server on port 3100 confirmed that the application route returns no-store HTTP 401 for missing-session and cross-origin requests without leaking configuration.
+- **Remaining:** The authenticated application-route/UI journey and full `pnpm test:api` suite were not run because no controlled smoke password or reusable browser session was available to the agent. Add the Azure configuration separately to Production and staging-scoped Preview, then verify both modes from an authenticated Admin form before release.
 
 ### 2026-09-06 - Two-branch Vercel topology and Preview search exclusion
 

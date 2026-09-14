@@ -166,6 +166,7 @@ async function verifyProtectedEndpointsRejectMissingSession() {
     ["/api/admin/content/testimonials/missing", "PUT"],
     ["/api/admin/content/testimonials/missing", "DELETE"],
     ["/api/admin/content/upload", "POST"],
+    ["/api/admin/translate/gujarati", "POST"],
   ];
 
   for (const [pathname, method] of endpoints) {
@@ -179,6 +180,17 @@ async function verifyProtectedEndpointsRejectMissingSession() {
       401,
     );
   }
+}
+
+async function verifyTranslationBoundary() {
+  await expectStatus(
+    "Gujarati translation rejects an empty batch",
+    await request("/api/admin/translate/gujarati", {
+      body: { mode: "translate", texts: [] },
+      method: "POST",
+    }),
+    400,
+  );
 }
 
 async function verifyCrud() {
@@ -665,6 +677,7 @@ async function main() {
   await verifyPublicReads();
   await login();
   await verifyProtectedEndpointsRejectMissingSession();
+  await verifyTranslationBoundary();
   await verifyCrud();
   await verifyUpload();
   await verifyEmailAndPasswordResetFlows();

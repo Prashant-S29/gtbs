@@ -46,6 +46,7 @@ Update every topic document whose facts changed. New errors and resolutions belo
 - The only shopper utility page is Cart. Wishlist, Checkout, customer login, registration, profile, and order-history pages are outside product scope; legacy URLs redirect to Cart or All Products.
 - WhatsApp requests must state that availability, shipping, final total, and payment still require GTBS confirmation.
 - Contact actions must use the server-side Resend route, identify real delivery status, and surface controlled provider failure instead of logging or claiming false success. The browser must never receive the Resend key.
+- Gujarati Admin assistance is advisory: English mode performs semantic English-to-Gujarati translation, and the separately selected phonetic mode transliterates Roman Gujarati. Suggestions must remain editable, require an explicit “Use suggestion” action before changing a target field, and must never overwrite nonblank Gujarati content automatically.
 
 ## UI rules
 
@@ -68,6 +69,7 @@ Update every topic document whose facts changed. New errors and resolutions belo
 - PostgreSQL schema changes use new ordered migrations and `pnpm db:setup`; previously applied SQL files must remain immutable. Runtime content access stays behind the Drizzle repository, and one-time seed/import logic must honor `gtbs_settings.content_initialized` so deleted records are not recreated.
 - Live API smoke tests use unique temporary records, verify every content CRUD domain, and clean database/provider artifacts on success or failure. Run them only against an explicitly reviewed target.
 - Admin state-changing requests require same-origin verification and the `X-GTBS-Admin-Request` marker.
+- Translation requests require the verified single Admin session, the same-origin Admin marker, strict bounded mode/text arrays, a provider timeout, and no-store responses. Azure credentials stay server-only; missing configuration must return a controlled unavailable response without blocking manual content entry.
 - Catalog/blog/gallery/testimonial/team admin APIs also require a verified admin session and bounded, strict Zod payloads.
 - Category create/update requires separate bounded English and Gujarati names. The editor and Product inline Category popup must start on English, use `Next` without persistence, and expose the only final Create/Update action on the Gujarati step with a `Previous` path back to English. The repository generates a unique slug on create and retains it on update. Slugs and descriptions must not appear in the admin form/list or home-page Category cards; stored legacy fields remain for routing and file compatibility only.
 - When Gujarati is selected, repository-backed homepage Category cards and All Products Category filters must prefer the saved Gujarati Category name; legacy Categories without Gujarati content display the stored English name.

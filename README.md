@@ -25,7 +25,9 @@ The command applies checksum-tracked migrations, then initializes content exactl
 
 Admin email/password authentication, sessions, password-reset tokens, and auth rate limits use Better Auth with PostgreSQL. After migrations, set `ADMIN_EMAIL` and run `pnpm admin:setup` once in a private interactive terminal; the password is hashed directly into PostgreSQL and is never written to a file or environment variable. Configure stable `BETTER_AUTH_SECRET`/`BETTER_AUTH_URL` values in deployment.
 
-Contact and Admin password-reset mail is sent server-side through Resend from `GTBS Support <support@gtbsbooks.com>`. Configure only the send-scoped `RESEND_API_KEY`; no browser email key is used.
+Contact and Admin password-reset mail is sent server-side through Resend from the verified `GTBS Support <support@gtbsbooks.com>` sender. Contact submissions are delivered to `CONTACT_RECIPIENT_EMAIL`, which defaults to `gtbs-1852@yahoo.in`; no browser email key is used.
+
+Admin bilingual forms include editable Gujarati suggestions. English text uses Azure semantic translation, while Roman-Gujarati text uses a separate phonetic transliteration mode. Configure the server-only `AZURE_TRANSLATOR_KEY`; for the recommended Global Translator resource, leave `AZURE_TRANSLATOR_REGION` unset. Missing credentials disable suggestions with a controlled message but never block manual Gujarati authoring or saving.
 
 ## Vercel deployment
 

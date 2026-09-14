@@ -176,14 +176,14 @@ function Header({ categories }: { categories: Category[] }) {
             {/* Email */}
 
             <Link
-              href="mailto:support@gtbsbooks.com"
+              href="mailto:gtbs-1852@yahoo.in"
               title={t("common.emailUs")}
               aria-label={t("common.emailUs")}
               className="flex items-center gap-2 text-sm leading-none text-white transition-colors duration-200 hover:text-amber-400"
             >
               <Mail className="h-4 w-4 shrink-0" />
 
-              <span className="hidden sm:inline">support@gtbsbooks.com</span>
+              <span className="hidden sm:inline">gtbs-1852@yahoo.in</span>
             </Link>
 
             {/* Divider */}
@@ -204,19 +204,6 @@ function Header({ categories }: { categories: Category[] }) {
                 className="transition-colors duration-200 hover:text-amber-400"
               >
                 +91 9265429338
-              </Link>
-
-              <span className="hidden text-white/40 md:inline">|</span>
-
-              <Link
-                href="tel:+917490028867"
-                title={t("common.callNumber", { number: "+91 7490028867" })}
-                aria-label={t("common.callNumber", {
-                  number: "+91 7490028867",
-                })}
-                className="hidden transition-colors duration-200 hover:text-amber-400 md:inline"
-              >
-                +91 7490028867
               </Link>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { createHash } from "node:crypto";
 import { Resend } from "resend";
 
 const FROM_EMAIL = "GTBS Support <support@gtbsbooks.com>";
-const DEFAULT_SUPPORT_EMAIL = "support@gtbsbooks.com";
+const DEFAULT_SUPPORT_EMAIL = "gtbs-1852@yahoo.in";
 
 let resendClient: Resend | undefined;
 

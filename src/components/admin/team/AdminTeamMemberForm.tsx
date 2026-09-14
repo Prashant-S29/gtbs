@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import AdminBilingualFormSteps, {
   type AdminContentLanguage,
 } from "@/components/admin/AdminBilingualFormSteps";
+import AdminGujaratiSuggestion from "@/components/admin/AdminGujaratiSuggestion";
 import {
   adminJsonRequest,
   uploadAdminImages,
@@ -256,26 +257,48 @@ export default function AdminTeamMemberForm({
             This saved content is shown when the storefront language is
             Gujarati.
           </p>
-          <label className="text-sm font-semibold">
-            Gujarati member name
+          <div>
+            <label
+              htmlFor="team-gujarati-name"
+              className="text-sm font-semibold"
+            >
+              Gujarati member name
+            </label>
             <input
+              id="team-gujarati-name"
               name="gujaratiName"
               required={formLanguage === "gu"}
               maxLength={120}
               defaultValue={initialItem?.gujarati?.name}
               className={inputClass}
             />
-          </label>
-          <label className="text-sm font-semibold">
-            Gujarati member role
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="name"
+              targetName="gujaratiName"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="team-gujarati-role"
+              className="text-sm font-semibold"
+            >
+              Gujarati member role
+            </label>
             <input
+              id="team-gujarati-role"
               name="gujaratiRole"
               required={formLanguage === "gu"}
               maxLength={160}
               defaultValue={initialItem?.gujarati?.role}
               className={inputClass}
             />
-          </label>
+            <AdminGujaratiSuggestion
+              active={formLanguage === "gu"}
+              sourceName="role"
+              targetName="gujaratiRole"
+            />
+          </div>
         </fieldset>
 
         <div className="flex flex-col-reverse gap-2 sm:col-span-2 sm:flex-row sm:justify-end">
